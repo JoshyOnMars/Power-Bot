@@ -19,7 +19,6 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
 	console.log('Ready!');
-    client.user.setActivity(`${prefix}help`, { type: 'PLAYING' });
 });
 
 client.on('messageCreate', message => {
