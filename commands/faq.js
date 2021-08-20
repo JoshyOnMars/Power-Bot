@@ -1,11 +1,8 @@
-
 const { MessageEmbed } = require("discord.js")
-require("dotenv").config();
-const prefix = process.env.PREFIX
 
 module.exports = {
 	  name: 'faq',
-    category: 'Info',
+    	  category: 'Info',
 	  async execute(message, args, client) {
 
         const inputThing = args[0];
