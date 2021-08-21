@@ -28,7 +28,10 @@ client.on('messageCreate', message => {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
     	}
     	if (foundInText) {
-        message.delete()
+		let embed = MessageEmbed()
+		.setColor("YELLOW")
+		.setDescription(`${message.author}, hey you can use phrohibited/blacklisted words here!`)
+        message.delete().then(message.channel.send({ embeds: [embed] }))
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
