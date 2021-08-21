@@ -28,7 +28,7 @@ client.on('messageCreate', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
-        if (message.content == badlistArray) { message.delete() };
+        if (message.content == badwordsArray) { message.delete() };
 
 	try {
 		client.commands.get(command).execute(message, args, client)
