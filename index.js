@@ -23,7 +23,13 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', message => {
-        if (message.content === badwordsArray) { console.log(message.content) };
+	let foundInText = false;
+    	for (var i in badwordsArray) {
+      	if (message.content.toLowerCase().includes(blackwordsArray[i].toLowerCase())) foundInText = true;
+    	}
+    	if (foundInText) {
+        message.delete().then(message.channel.send(`${message.author} no bad words here buddy!`))
+	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
