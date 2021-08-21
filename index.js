@@ -23,12 +23,11 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', message => {
+        if (message.content === badwordsArray) { console.log(message.content) };
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-
-        if (message.content === badwordsArray) { message.delete() };
 
 	try {
 		client.commands.get(command).execute(message, args, client)
