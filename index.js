@@ -29,7 +29,6 @@ client.on('messageCreate', message => {
     	}
     	if (foundInText) {
         message.delete()
-	message.channel.send(`${message.author} no bad words here buddy!`)
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
