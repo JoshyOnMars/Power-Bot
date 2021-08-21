@@ -28,7 +28,8 @@ client.on('messageCreate', message => {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
     	}
     	if (foundInText) {
-        message.delete().then(message.channel.send(`${message.author} no bad words here buddy!`))
+        message.delete()
+	message.channel.send(`${message.author} no bad words here buddy!`)
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
