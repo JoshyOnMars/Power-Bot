@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js")
 
 module.exports = {
 	  name: 'faq',
+          description: 'Find your answers you're looking for with this command!',
     	  category: 'Info',
 	  async execute(message, args, client) {
 
