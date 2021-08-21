@@ -2,7 +2,7 @@ const fs = require('fs');
 const { Client, Collection, Intents, MessageEmbed, GuildMember } = require('discord.js');
 require("dotenv").config();
 const mongoose = require("mongoose");
-const badwordsArray = require("badwords/array")
+const badwordsArray = require("./badwords.js")
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 
