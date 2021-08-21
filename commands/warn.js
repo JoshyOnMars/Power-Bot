@@ -46,8 +46,9 @@ module.exports = {
 	
 	let embed3 = new MessageEmbed()
 	.setColor("YELLOW")
-        .setAuthor(`You got warned!`, rUser.displayAvatarURL())
-        .setDescription(`Warned for: ${reason}`)
+        .setAuthor(`${client.user.username}`, client.displayAvatarURL())
+        .setTitle(`You got warned in ${message.guild.name}`)
+	.addFields({name: `Reason:`,value: `${reason}`,})
         .setTimestamp()
 
         message.channel.send({ embeds: [embed2] })
