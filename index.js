@@ -30,7 +30,7 @@ client.on('messageCreate', message => {
     	if (foundInText) {
 		let embed = new MessageEmbed()
 		.setColor("YELLOW")
-		.setDescription(`${message.author}, hey you can use phrohibited/blacklisted words here!`)
+		.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
         message.delete().then(message.channel.send({ embeds: [embed] }))
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
