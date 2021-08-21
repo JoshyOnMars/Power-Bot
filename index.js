@@ -25,7 +25,7 @@ client.on('ready', () => {
 client.on('messageCreate', message => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
-      	if (message.content.toLowerCase().includes(blackwordsArray[i].toLowerCase())) foundInText = true;
+      	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
     	}
     	if (foundInText) {
         message.delete().then(message.channel.send(`${message.author} no bad words here buddy!`))
