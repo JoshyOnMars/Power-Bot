@@ -43,8 +43,15 @@ module.exports = {
         .setDescription(`Warned ${rUser} for: ${reason}`)
         .setFooter(`User ID: ${rUser.id}`)
         .setTimestamp()
+	
+	let embed3 = new MessageEmbed()
+	.setColor("YELLOW")
+        .setAuthor(`You got warned!`, rUser.displayAvatarURL())
+        .setDescription(`Warned for: ${reason}`)
+        .setTimestamp()
 
         message.channel.send({ embeds: [embed2] })
+	rUser.send({ embeds: [embed3] })
         logChannel.send({ embeds: [embed] });
 	},
 };
