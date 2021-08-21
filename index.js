@@ -2,7 +2,7 @@ const fs = require('fs');
 const { Client, Collection, Intents, MessageEmbed, GuildMember } = require('discord.js');
 require("dotenv").config();
 const mongoose = require("mongoose");
-const badwordsArray = require("bad-words")
+const badwordsArray = require("badwords/array")
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 
@@ -28,6 +28,7 @@ client.on('messageCreate', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
+        if (message.content = badlistArray) return message.reply("No bad words here buddy..")
 
 	try {
 		client.commands.get(command).execute(message, args, client)
