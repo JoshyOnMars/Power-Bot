@@ -35,6 +35,7 @@ module.exports = {
       .addField("Reason:", rReason)
       .addField("Channel:", message.channel.toString())
       .setFooter(`User ID: ${rUser.id}`)
+      .setTimestamp()
 
     message.author.send(`You successfully reported ${rUser} for ${rReason}`);
 
