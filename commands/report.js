@@ -1,8 +1,11 @@
 const { MessageEmbed } = require("discord.js")
+require("dotenv").config();
+const prefix = process.env.PREFIX
 
 module.exports = {
 	name: 'report',
 	description: 'Report a user!',
+	usage: `${prefix}report [user] (reason)`,
         category: 'Moderation',
 	async execute(message, args, client) {
     
