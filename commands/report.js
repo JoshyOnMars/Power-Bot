@@ -1,0 +1,40 @@
+const { MessageEmbed } = require("discord.js")
+
+module.exports = {
+	name: 'report',
+	description: 'Report a user!',
+  category: 'Moderation',
+	async execute(message, args, client) {
+    
+        message.delete()
+    let reportChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
+    if (!reportChannel)
+      return message.channel.send(
+        "There is no channel called 'log', please create one and make sure the bot can send messages in it!"
+      );
+
+    let rUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+    if (!rUser)
+      return message.channel.send("I can't find that user, try again.");
+
+    let args1 = message.content.slice(1).split(/ +/);
+    let rReason = args1.slice(2).join(" ");
+
+    if (!rReason) return message.channel.send("You need to specify a reason.");
+    if (rReason > 32)
+      return message.channel.send(
+        "Sorry, the reason is to long. Keep it short, 32 characters."
+      );
+
+    let reportEmbed = new MessageEmbed()
+      .setColor("RED")
+      .setAuthor(`A user has been reported!`, rUser.displayAvatarURL())
+      .addField("User", `${rUser} with ID: ${rUser.id}`)
+      .addField("In", message.channel.toString())
+      .addField("Reason", rReason);
+
+    message.author.send(`You successfully reported ${rUser}`);
+
+    reportChannel.send({ embeds: [reportEmbed] });
+	},
+};
