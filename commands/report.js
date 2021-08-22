@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
 	name: 'report',
 	description: 'Report a user!',
-  category: 'Moderation',
+        category: 'Moderation',
 	async execute(message, args, client) {
     
         message.delete()
