@@ -20,6 +20,7 @@ for (const file of commandFiles) {
 
 client.on('ready', () => {
 	console.log('Ready!');
+	client.user.setActivity(`tank farms`, { type: 'WATCHING' });
 });
 
 client.on('messageCreate', message => {
