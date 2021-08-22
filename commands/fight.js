@@ -4,8 +4,6 @@ let userhealth = 100;
 
 module.exports = {
 	name: 'fight',
-	description: 'this is a test cmd dont spam it!',
-        category: 'Moderation',
 	async execute(message, args, client) {
     let beastdamage = Math.floor(Math.random() * 15);
     let userdamage = Math.floor(Math.random() * 30);
