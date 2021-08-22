@@ -29,11 +29,11 @@ module.exports = {
     let reportEmbed = new MessageEmbed()
       .setColor("RED")
       .setAuthor(`A user has been reported!`, rUser.displayAvatarURL())
-      .addField("User", `${rUser} with ID: ${rUser.id}`)
-      .addField("In", message.channel.toString())
-      .addField("Reason", rReason);
+      .setDescription(`${rUser} got reported! | ${rUser.id}`)
+      .addField("Reason:", rReason)
+      .addField("Channel:", message.channel.toString())
 
-    message.author.send(`You successfully reported ${rUser}`);
+    message.author.send(`You successfully reported ${rUser} for ${rReason}`);
 
     reportChannel.send({ embeds: [reportEmbed] });
 	},
