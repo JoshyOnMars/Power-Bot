@@ -32,6 +32,30 @@ module.exports = {
             .addField("Rule 4", "Don't beg for follows, If you are sharing your social media accounts or websites, It has to be related to an ongoing discussion.")
             .setTimestamp()
             message.channel.send({ embeds: [embed] })
+        } else if (input === "5") {
+            let embed = new MessageEmbed()
+            .setColor("BLUE")
+            .addField("Rule 5", "No politics of any kind.")
+            .setTimestamp()
+            message.channel.send({ embeds: [embed] })
+        } else if (input === "6") {
+            let embed = new MessageEmbed()
+            .setColor("BLUE")
+            .addField("Rule 6", "Be kind & keep conversations polite. Threatening, harassing or abusive behavior is prohibited and will result in a ban.")
+            .setTimestamp()
+            message.channel.send({ embeds: [embed] })
+        } else if (input === "7") {
+            let embed = new MessageEmbed()
+            .setColor("BLUE")
+            .addField("Rule 7", "Don't argue with our Mods, What they say/do is final.")
+            .setTimestamp()
+            message.channel.send({ embeds: [embed] })
+        } else if (input === "8") {
+            let embed = new MessageEmbed()
+            .setColor("BLUE")
+            .addField("Rule 8", "If sharing rocket photographer's photos, Then please share the original link or at a minimum be sure to credit the source of that photographer.")
+            .setTimestamp()
+            message.channel.send({ embeds: [embed] })
         } 
 	},
 };
