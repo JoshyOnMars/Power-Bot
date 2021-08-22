@@ -29,9 +29,10 @@ module.exports = {
     let reportEmbed = new MessageEmbed()
       .setColor("RED")
       .setAuthor(`A user has been reported!`, rUser.displayAvatarURL())
-      .setDescription(`${rUser} got reported! | ${rUser.id}`)
+      .setDescription(`${rUser} got reported!`)
       .addField("Reason:", rReason)
       .addField("Channel:", message.channel.toString())
+      .setFooter(`User ID: ${rUser.id}`)
 
     message.author.send(`You successfully reported ${rUser} for ${rReason}`);
 
