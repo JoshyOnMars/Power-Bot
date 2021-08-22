@@ -26,7 +26,7 @@ client.on('messageCreate', message => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-	if (message.channel.name("😂memes-zone")) return;
+	if (message.channel.name === "😂memes-zone") return;
     	}
     	if (foundInText) {
 		let embed = new MessageEmbed()
