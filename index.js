@@ -26,12 +26,13 @@ client.on('messageCreate', message => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
+	if message.channel.name("😂memes-zone") return;
     	}
     	if (foundInText) {
 		let embed = new MessageEmbed()
 		.setColor("YELLOW")
 		.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
-        message.delete().then(message.channel.send({ embeds: [embed] }))
+       		message.delete().then(message.channel.send({ embeds: [embed] }))
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
