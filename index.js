@@ -42,7 +42,7 @@ client.on('messageCreate', message => {
 		client.commands.get(command).execute(message, args, client)
 	} catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		message.reply('There was an error trying to execute that command, please contact <@691634056278048778> to fix it!');
 	}
 });
 
