@@ -26,7 +26,7 @@ module.exports = {
     
     let Embed3 = new MessageEmbed()
     .setColor("#2f3136")
-    .setDescription("⬅️ The discord beast dealt **${beastdamage}** damage! And you have **${userhealth}** health left...")
+    .setDescription(`⬅️ The discord beast dealt **${beastdamage}** damage! And you have **${userhealth}** health left...`)
     
     
     let Embed4 = new MessageEmbed()
