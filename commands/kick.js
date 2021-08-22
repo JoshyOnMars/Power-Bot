@@ -26,8 +26,7 @@ module.exports = {
 
         let embed = new MessageEmbed()
 		.setColor("RED")
-		.setDescription(`${user} just got kicked! | Reason ${reason}`)
-		.setFooter(`User ID: ${user.id}`)
+		.setDescription(`${user} just got kicked! | Reason: ${reason}`)
 		.setTimestamp()
 
             member.kick({reason: reason,}).then(() => {
