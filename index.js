@@ -30,10 +30,18 @@ client.on('messageCreate', message => {
 	if (message.channel.name === "😂memes-zone") return;
     	}
     	if (foundInText) {
-		let embed = new MessageEmbed()
+                let logChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
+                if (!logChannel) return message.channel.send("There is no channel called 'log', please create one and make sure the bot can send messages in it!");
+
+                let embed2 = new MessageEmbed()
+                .setColor("YELLOW")
+                .setDescription(`${message.author} sent a blacklisted word in ${message.channel}`)
+		
+                let embed = new MessageEmbed()
 		.setColor("YELLOW")
 		.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
        		message.delete().then(message.channel.send({ embeds: [embed] }))
+                logChannel.send({ embeds: [embed2] })
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
