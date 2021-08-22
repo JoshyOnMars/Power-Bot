@@ -25,10 +25,8 @@ module.exports = {
         let user = member.user;
 
         let embed = new MessageEmbed()
-		.setColor("ORANGE")
-		.setAuthor(`Kick Alert!`, user.displayAvatarURL())
-		.setDescription(`${user} just got kicked!`)
-		.addFields({name: `Reason:`,value: `${reason}`})
+		.setColor("RED")
+		.setDescription(`${user} just got kicked! | Reason ${reason}`)
 		.setFooter(`User ID: ${user.id}`)
 		.setTimestamp()
 
