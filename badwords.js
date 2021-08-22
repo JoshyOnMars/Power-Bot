@@ -1,4 +1,7 @@
 module.exports = [
+                  "bylat",
+                  "puta",
+                  "forking",
                   "anal",
                   "ass-fucker",
                   "assfucker",
