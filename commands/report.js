@@ -19,8 +19,6 @@ module.exports = {
     let rUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     if (!rUser)
       return message.channel.send("I can't find that user, try again.");
-		
-   if (rUser = "<@878320288306167838>") return message.channel.send(`${message.author},  What did i do wrong for you to report me?!`)
 
     let args1 = message.content.slice(1).split(/ +/);
     let rReason = args1.slice(2).join(" ");
