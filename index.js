@@ -10,7 +10,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const prefix = process.env.PREFIX
 
 client.commands = new Collection();
-const cooldowns = new Collection()
+client.cooldowns = new Collection()
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
