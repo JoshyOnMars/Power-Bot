@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js")
+const profileModel = require("../models/profileSchema");
 require("dotenv").config();
 const prefix = process.env.PREFIX
 
@@ -7,7 +8,7 @@ module.exports = {
 	description: 'Kick a user.',
         usage: `${prefix}kick [user] (reason)`,
         category: 'Moderation',
-	async execute(message, args, client) {
+	async execute(message, args, client, profileData) {
 
         message.delete()
 
@@ -24,6 +25,17 @@ module.exports = {
         }
         let user = member.user;
 
+	const response = await profileModel.findOneAndUpdate(
+      	{
+        	userID: user.id,
+      	},
+      	{
+        	$inc: {
+          	modLogs: profileData.modLogs + 1,
+        },
+      	}
+    	);
+		
         let embed = new MessageEmbed()
 		.setColor("RED")
 		.setDescription(`${user} just got kicked! | Reason: ${reason}`)
