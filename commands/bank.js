@@ -9,7 +9,7 @@ module.exports = {
     const number = args[0]
     if (!number) { return message.channel.send(`Please specify the amount you want to deposit! (Min 1000)`)}
     if (number > 1000) { return message.channel.send("Your amount is more than the min amount of 1000.")}
-    if (profileData.bank === 1000) { return message.channel.send(`You have the max amount of \`1000\` in your bank!`)}
+    if (profileData.bank > 999) { return message.channel.send(`You have the max amount of \`1000\` in your bank!`)}
     if (profileData.coins < 1) { return message.channel.send(`You have no coins to deposit into your bank!`)}
     const response = await profileModel.findOneAndUpdate(
       {
