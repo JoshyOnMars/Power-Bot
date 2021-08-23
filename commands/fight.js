@@ -40,7 +40,7 @@ module.exports = {
     	return message.channel.send({ embeds: [Embed2] })
     	//message.channel.send({ embeds: [Embed1] })
     if (userhealth <= 0)
-    	return message.channel.send({ embeds: [Embed4] }).then((userhealth <= 0)((userhealth = userhealth)));
+    	return message.channel.send({ embeds: [Embed4] })
     	message.channel.send({ embeds: [Embed1] })
   },
 };
