@@ -1,8 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
 module.exports = {
-  name: "balance",
-  aliases: ["bal", "bl"],
+  name: "bal",
   async execute(message, args, client, profileData) {
     message.channel.send(`Your wallet bal is ${profileData.coins}, you banks bal is ${profileData.bank}`);
   },
