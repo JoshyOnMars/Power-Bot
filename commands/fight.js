@@ -37,10 +37,10 @@ module.exports = {
     .setDescription(`🐲 The discord beast dealt **${beastdamage}** damage! You have died! The discord beast destroyed **${message.guild.name}**!`)
     
     if (beasthealth <= 0)
-    message.channel.send({ embeds: [Embed1] }).then(console.log(`➡️ Dealt ${userdamage} damage to the discord beast in ${message.guild.name}! The discord beast now has ${beasthealth} health left!`));
+    	return message.channel.send({ embeds: [Embed2] }).then((beasthealth <= 0)((beasthealth = beasthealth)));
+    	message.channel.send({ embeds: [Embed1] })
     if (userhealth <= 0)
-      return message.channel.send({ embeds: [Embed4] }).then((userhealth <= 0)((userhealth = userhealth)));
-    message.channel.send({ embeds: [Embed1] }).then(console.log(`⬅️ The discord beast dealt ${beastdamage} damage to the user! In ${message.guild.name}! The user now has ${userhealth} health left!`));
-
+    	return message.channel.send({ embeds: [Embed4] }).then((userhealth <= 0)((userhealth = userhealth)));
+    	message.channel.send({ embeds: [Embed1] })
   },
 };
