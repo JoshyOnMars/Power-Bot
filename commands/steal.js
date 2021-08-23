@@ -8,7 +8,7 @@ module.exports = {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     
-    if (mentionedUser.profileData.coins < 1) { return message.channel.send(`${mentionedUser} has no coins for you to steal!`) }
+    if (mentionedUser.profileData.coins < randomNumber) { return message.channel.send(`${mentionedUser} doesn't enough coins for you to steal!`) }
     
     const response = await profileModel.findOneAndUpdate(
       {
