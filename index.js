@@ -89,6 +89,8 @@ client.on('messageCreate', async message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	
+	console.log(command)
+	
 	const { cooldowns } = client;
 
 	if (!cooldowns.has(command.name)) {
