@@ -90,8 +90,6 @@ client.on('messageCreate', async message => {
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName)
 	
-	console.log(command)
-	
 	const { cooldowns } = client;
 
 	if (!cooldowns.has(command.name)) {
@@ -107,7 +105,7 @@ client.on('messageCreate', async message => {
 
     		if (now < expirationTime) {
         	const timeLeft = (expirationTime - now) / 1000;
-        	return message.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command}\` command.`);
+        	return message.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandName}\` command.`);
     		}
  	}
 
