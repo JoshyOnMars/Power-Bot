@@ -37,8 +37,8 @@ client.on('ready', () => {
 	client.user.setActivity(`tank farms`, { type: 'WATCHING' });
 });
 
-client.on('guildMemberAdd', member => {
-let profile = profileModel.create({
+client.on('guildMemberAdd', async member => {
+let profile = await profileModel.create({
     userID: member.id,
     serverID: member.guild.id,
     coins: 1000,
@@ -47,7 +47,7 @@ let profile = profileModel.create({
   profile.save();
 })
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async message => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
@@ -73,7 +73,7 @@ client.on('messageCreate', message => {
   	try {
     		profileData = await profileModel.findOne({ userID: message.author.id });
     	if (!profileData) {
-      		let profile = profileModel.create({
+      		let profile = await profileModel.create({
         	userID: message.author.id,
         	serverID: message.guild.id,
         	coins: 1000,
