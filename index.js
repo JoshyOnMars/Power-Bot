@@ -115,7 +115,7 @@ client.on('messageCreate', async message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		client.commands.get(command).execute(message, args, client, profileData)
+		client.commands.get(commandName).execute(message, args, client, profileData)
 	} catch (error) {
 		console.error(error);
 		message.reply('There was an error trying to execute that command, pinging <@691634056278048778> to fix it!');
