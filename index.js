@@ -48,7 +48,7 @@ let profile = await profileModel.create({
   profile.save();
 })
 
-client.on('messageCreate', async message => {
+client.on('messageCreate', async (message, Discord) => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
