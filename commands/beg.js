@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js")
+const profileModel = require("../../models/profileSchema");
 
 module.exports = {
   name: "beg",
