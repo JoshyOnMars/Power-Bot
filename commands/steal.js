@@ -28,7 +28,10 @@ module.exports = {
         },
       }
     );
-    if (!response2) { return message.channel.send(`${mentionedUser} doesn't appear to have any money!`)}
+    if (response2.coins < 1) { message.channel.send(`${mentionedUser} has no coins for you to steal!`) }
+    
+    if (!response2) { return message.channel.send(`${mentionedUser} has no coins for you to steal!`)}
+    
     return message.channel.send(`${message.author.username}, You stole ${randomNumber} coins from ${mentionedUser}!`);
   },
 };
