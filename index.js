@@ -35,7 +35,7 @@ mongoose
 
 client.on('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity(`tank farms`, { type: 'WATCHING' });
+	client.user.setActivity(`starship`, { type: 'WATCHING' });
 });
 
 client.on('guildMemberAdd', async member => {
