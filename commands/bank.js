@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 const profileModel = require("../models/profileSchema");
 
 module.exports = {
-  name: "beg",
+  name: "bank",
   cooldown: 300,
   async execute(message, args, client, profileData) {
    
