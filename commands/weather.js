@@ -5,7 +5,7 @@ module.exports = {
     name: 'weather',
     async execute(client, message, args) {
     
-        weather.find({search: args.join(" "), degreeType: 'F'}, function (error, result){
+        weather.find({search: args[0].join(" "), degreeType: 'F'}, function (error, result){
         // 'C' can be changed to 'F' for farneheit results
         if(error) return message.channel.send(error);
         if(!args[0]) return message.channel.send('Please specify a location')
@@ -29,5 +29,5 @@ module.exports = {
 
         message.channel.send({ embeds: [weatherinfo] })
         })        
-    }
-}
+    },
+};
