@@ -37,15 +37,9 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity(`starship`, { type: 'WATCHING' });
-        fetch('https://fdo.rocketlaunch.live/json/launches/next/5', {
-        method: 'GET',
-        body: JSON.stringify({
-        foo: "bar"
-        })
-        }).then(res => {
-        console.log(res.body)
-        })
-});
+        fetch('https://fdo.rocketlaunch.live/json/launches/next/5')
+        .then(res => res.json()) .then(json => { console.log(json[0]); })
+};
 
 client.on('guildMemberAdd', async member => {
 let profile = await profileModel.create({
