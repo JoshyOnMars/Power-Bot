@@ -1,11 +1,11 @@
-const { MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const weather = require('weather-js');
 
 module.exports = {
     name: 'weather',
-    async execute(client, message, args) {
+    async execute(message, args, client) {
     
-        weather.find({search: args[0].join(" "), degreeType: 'F'}, function (error, result){
+        weather.find({search: args.join(" "), degreeType: 'F'}, function (error, result){
         // 'C' can be changed to 'F' for farneheit results
         if(error) return message.channel.send(error);
         if(!args[0]) return message.channel.send('Please specify a location')
