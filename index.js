@@ -37,6 +37,16 @@ client.on('ready', () => {
 	client.user.setActivity(`tank farms`, { type: 'WATCHING' });
 });
 
+client.on('guildMemberAdd', member => {
+let profile = await profileModel.create({
+    userID: member.id,
+    serverID: member.guild.id,
+    coins: 1000,
+    bank: 0,
+  });
+  profile.save();
+})
+
 client.on('messageCreate', message => {
 	let foundInText = false;
     	for (var i in badwordsArray) {
