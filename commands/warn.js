@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js")
+const profileModel = require("../models/profileSchema");
 require("dotenv").config();
 const prefix = process.env.PREFIX
 
@@ -54,8 +55,19 @@ module.exports = {
 	.addFields({name: `Reason:`,value: `${reason}`,})
         .setTimestamp()
 
+	const response = await profileModel.findOneAndUpdate(
+      	{
+        	userID: rUser.id,
+      	},
+      	{
+        	$inc: {
+          	modLogs: profileModel.modLogs + 1,
+        },
+      	}
+    	);
+	
         message.channel.send({ embeds: [embed2] })
 	rUser.send({ embeds: [embed3] })
-        logChannel.send({ embeds: [embed] });
+        logChannel.send({ embeds: [embed] }).then()
 	},
 };
