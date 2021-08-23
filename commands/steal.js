@@ -32,6 +32,6 @@ module.exports = {
     
     if (!response2) { return message.channel.send(`${mentionedUser} has no coins for you to steal!`)}
     
-    return message.channel.send(`${message.author.username}, You stole ${randomNumber} coins from ${mentionedUser}!`);
+    return message.channel.send(`${message.author}, You stole ${randomNumber} coins from **${mentionedUser.username}**!`);
   },
 };
