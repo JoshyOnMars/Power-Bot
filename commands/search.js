@@ -9,7 +9,7 @@ module.exports = {
             "highbay bar",
             "high bay",
             "mid bay",
-            "low bay"
+            "low bay",
             "raptor truck",
             "tesla",
             "floor",
