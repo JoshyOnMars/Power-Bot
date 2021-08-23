@@ -7,6 +7,6 @@ const profileSchema = new mongoose.Schema({
   bank: { type: Number },
 });
 
-const model = mongoose.model("ProfileModel", profileSchema);
+const model = mongoose.model("ProfileModels", profileSchema);
 
 module.exports = model;
