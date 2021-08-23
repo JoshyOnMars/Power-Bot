@@ -1,4 +1,4 @@
 # TLP-Bot
-`Changed README.md`
+`Changed badwords.js`
 
 `Currency System Disabled`
