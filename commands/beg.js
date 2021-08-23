@@ -6,7 +6,7 @@ module.exports = {
   async execute(message, args, client, profileData) {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     let names = require("../names.js")
-    let randomNames = names[Math.floor(Math.random() * names.legnth)];
+    let randomName = names[Math.floor(Math.random() * names.length)];
     
     const response = await profileModel.findOneAndUpdate(
       {
@@ -18,6 +18,6 @@ module.exports = {
         },
       }
     );
-    return message.channel.send(`${message.author.username}, You begged and ${randomNames} gave you ${randomNumber} coins!`);
+    return message.channel.send(`${message.author.username}, You begged and ${randomName} gave you ${randomNumber} coins!`);
   },
 };
