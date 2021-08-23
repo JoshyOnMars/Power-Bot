@@ -90,7 +90,7 @@ client.on('messageCreate', async message => {
 	const command = args.shift().toLowerCase();
 	
 	if(!cooldowns.has(command.name)){
-        cooldowns.set(command.name, new client.Collection());
+        cooldowns.set(command.name, new Collection());
     }
 
     const current_time = Date.now();
