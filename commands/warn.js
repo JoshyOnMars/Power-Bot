@@ -8,7 +8,7 @@ module.exports = {
 	description: 'Warn a user!',
 	usage: `${prefix}warn [user] (reason)`,
         category: 'Moderation',
-	async execute(message, args, client) {
+	async execute(message, args, client, profileData) {
     
         message.delete()
 
