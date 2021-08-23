@@ -101,6 +101,7 @@ client.on('messageCreate', async message => {
 
 	if (timestamps.has(message.author.id)) {
         const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+	}
 
     	if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
@@ -116,6 +117,6 @@ client.on('messageCreate', async message => {
 		console.error(error);
 		message.reply('There was an error trying to execute that command, pinging <@691634056278048778> to fix it!');
 	}
-});
+	});
 
 client.login(process.env.DISCORD_TOKEN);
