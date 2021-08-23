@@ -38,7 +38,7 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
-let profile = await profileModel.create({
+let profile = profileModel.create({
     userID: member.id,
     serverID: member.guild.id,
     coins: 1000,
@@ -73,7 +73,7 @@ client.on('messageCreate', message => {
   	try {
     		profileData = await profileModel.findOne({ userID: message.author.id });
     	if (!profileData) {
-      		let profile = await profileModel.create({
+      		let profile = profileModel.create({
         	userID: message.author.id,
         	serverID: message.guild.id,
         	coins: 1000,
