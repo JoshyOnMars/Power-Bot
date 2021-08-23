@@ -37,7 +37,7 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity(`starship`, { type: 'WATCHING' });
-        fetch('https://fdo.rocketlaunch.live/json/launches/next/5')
+        fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
         .then(json => {
         for (const i of json.result) {
