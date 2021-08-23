@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js")
+const profileModel = require("../models/profileSchema.js");
 require("dotenv").config();
 const prefix = process.env.PREFIX
 
@@ -7,7 +8,7 @@ module.exports = {
 	description: 'Ban a user.',
         usage: `${prefix}ban [user] (reason)`,
         category: 'Moderation',
-	async execute(message, args, client) {
+	async execute(message, args, client, profileData) {
 
         message.delete()
 
@@ -29,6 +30,17 @@ module.exports = {
 		.setDescription(`${user} just got banned! | Reason: ${reason}`)
 		.setTimestamp()
 
+	const response = await profileModel.findOneAndUpdate(
+      	{
+        	userID: user.id,
+      	},
+      	{
+        	$inc: {
+          	modLogs: profileData.modLogs + 1,
+        },
+      	}
+    	);
+	
             member.ban({reason: reason,}).then(() => {
             message.channel.send({ embeds: [embed] })
         })
