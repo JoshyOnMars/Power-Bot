@@ -41,8 +41,8 @@ client.on('ready', () => {
         .then(res => res.json()) 
         .then(json => {
         for (const i of json.result) {
-        console.log(i.provider);
-        console.log(i.vehicle);
+        console.log(i.provider.name);
+        console.log(i.vehicle.name);
         }})
 });
 
