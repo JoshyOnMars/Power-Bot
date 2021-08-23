@@ -40,8 +40,8 @@ client.on('ready', () => {
         fetch('https://fdo.rocketlaunch.live/json/launches/next/5')
         .then(res => res.json()) 
         .then(json => {
-        for (var i in json.result) {
-        console.log(i.vehicle.name);
+        for (var i in json.result.vehicle.name) {
+        console.log(i);
         }})
 });
 
