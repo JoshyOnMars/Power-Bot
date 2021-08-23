@@ -93,12 +93,12 @@ client.on('messageCreate', async message => {
 	
 	const { cooldowns } = client;
 
-	if (!cooldowns.has(command.name)) {
-    	cooldowns.set(command.name, new Collection());
+	if (!cooldowns.has(command)) {
+    	cooldowns.set(command, new Collection());
 	}
 
 	const now = Date.now();
-	const timestamps = cooldowns.get(command.name);
+	const timestamps = cooldowns.get(command);
 	const cooldownAmount = (command.cooldown || 3) * 1000;
 
 	if (timestamps.has(message.author.id)) {
