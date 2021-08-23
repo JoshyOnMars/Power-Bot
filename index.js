@@ -58,12 +58,28 @@ client.on('messageCreate', message => {
                 logChannel.send({ embeds: [embed2] })
 	}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	
+	let profileData;
+  	try {
+    		profileData = await profileModel.findOne({ userID: message.author.id });
+    	if (!profileData) {
+      		let profile = await profileModel.create({
+        	userID: message.author.id,
+        	serverID: message.guild.id,
+        	coins: 1000,
+        	bank: 0,
+      	   });
+      		profile.save();
+    	   }
+  	   } catch (err) {
+    		console.log(err);
+  	   }
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
 	try {
-		client.commands.get(command).execute(message, args, client)
+		client.commands.get(command).execute(message, args, client, profileData)
 	} catch (error) {
 		console.error(error);
 		message.reply('There was an error trying to execute that command, pinging <@691634056278048778> to fix it!');
