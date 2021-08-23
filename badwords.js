@@ -133,7 +133,6 @@ module.exports = [
   "jizm", 
   "jizz", 
   "kawk", 
-  "knob", 
   "knobead",
   "knobed",
   "knobend", 
@@ -212,7 +211,7 @@ module.exports = [
   "nob jokey", 
   "nobhead",
   "nobjocky",
-  "nobjokey"
+  "nobjokey",
   "numbnuts",
   "nutsack", 
   "orgasim",
@@ -234,12 +233,12 @@ module.exports = [
   "phuks", 
   "phuq", 
   "pigfucker", 
-  "pimpis", "
+  "pimpis",
   "piss",
   "pissed",
   "pisser", 
   "pissers",
-  "pisses"
+  "pisses",
   "pissflaps",
   "pissin",
   "pissing",
@@ -250,8 +249,8 @@ module.exports = [
   "pornos",
   "prick", 
   "pricks",
-  "pron"
-  , "pube", 
+  "pron", 
+  "pube", 
   "pusse", 
   "pussi", 
   "pussies",
@@ -271,8 +270,8 @@ module.exports = [
   "scrotum",
   "semen",
   "sex",
-  "sh!+
- "sh!t"
+  "sh!+",
+  "sh!t",
   "sh1t",
   "shag",
   "shagger",
@@ -289,8 +288,8 @@ module.exports = [
   "shitfull", 
   "shithead",
   "shiting",
-  "shitings"
-  , "shits",
+  "shitings", 
+  "shits",
   "shitted",
   "shitter",
   "shitters",
