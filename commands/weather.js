@@ -5,7 +5,7 @@ module.exports = {
     name: 'weather',
     async execute(message, args, client) {
     
-        weather.find({search: args.join(" ")}, function (error, result){
+        weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result){
         // 'C' can be changed to 'F' for farneheit results
         if(error) return message.channel.send(error);
         if(!args[0]) return message.channel.send('Please specify a location')
@@ -16,11 +16,11 @@ module.exports = {
         let location = result[0].location;
 
         const weatherinfo = new MessageEmbed()
-        .setDescription(`**${current.skytext}**, **Time**: ${current.observationtime}`)
+        .setDescription(`**${current.skytext}**`)
         .setAuthor(`Weather forecast for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
         .setColor("BLUE")
-        .addField('Temperature', `${current.temperature}°${location.degreetype}`, true)
+        .addField('Temperature', `${current.temperature}°C`, true)
         .addField('Wind', current.winddisplay, true)
         .addField('Humidity', `${current.humidity}%`, true)
 
