@@ -8,6 +8,8 @@ module.exports = {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     
+    if (mentionedUser.profileData.coins < 1) { return message.channel.send(`${mentionedUser} has no coins for you to steal!`) }
+    
     const response = await profileModel.findOneAndUpdate(
       {
         userID: message.author.id,
@@ -28,9 +30,6 @@ module.exports = {
         },
       }
     );
-    if (response2.coins < 1) { message.channel.send(`${mentionedUser} has no coins for you to steal!`) }
-    
-    if (!response2) { return message.channel.send(`${mentionedUser} has no coins for you to steal!`)}
     
     return message.channel.send(`${message.author}, You stole ${randomNumber} coins from **${mentionedUser.username}**!`);
   },
