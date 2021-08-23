@@ -39,7 +39,7 @@ client.on('ready', () => {
 	client.user.setActivity(`starship`, { type: 'WATCHING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/5')
         .then(res => res.json()) .then(json => { console.log(json[0]); })
-};
+});
 
 client.on('guildMemberAdd', async member => {
 let profile = await profileModel.create({
