@@ -16,7 +16,8 @@
     "moment": "^2.29.1",
     "mongodb": "^4.1.0",
     "mongoose": "^5.13.5",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "weather-js": "2.0.0"
   },
   "engines": {
     "node": "^16.6.1"
