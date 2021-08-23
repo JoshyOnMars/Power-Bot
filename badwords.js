@@ -196,7 +196,7 @@ module.exports = [
   "muthafecker", 
   "muthafuckker",
   "muther", 
-  "mutherfucker"
+  "mutherfucker",
   "n1gga", 
   "n1gger", 
   "nazi",
