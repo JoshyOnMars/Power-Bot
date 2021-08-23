@@ -61,7 +61,7 @@ module.exports = {
       	},
       	{
         	$inc: {
-          	modLogs: profileModel.modLogs + 1,
+          	modLogs: profileData.modLogs + 1,
         },
       	}
     	);
