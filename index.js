@@ -41,7 +41,7 @@ client.on('ready', () => {
         .then(res => res.json()) 
         .then(json => {
         for (var i in json.result) {
-        console.log(i.name);
+        console.log(i.vehicle.name);
         }})
 });
 
