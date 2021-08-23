@@ -14,7 +14,17 @@ module.exports = {
     
     let Embed1 = new MessageEmbed()
     .setColor("#2f3136")
-    .setDescription(`➡️ You dealt **${userdamage}** damage! And the discord beast has **${beasthealth}** health left...`);
+    .setDescription(`➡️ You dealt **${userdamage}** damage!\n⬅️ The discord beast dealt **${beastdamage}** damage!`)
+    .addFields(
+	    {
+		    name: `User`,
+		    value: `Health: \`${userhealth}\``,
+	    },
+	    {
+		    name: `Beast`,
+		    value: `Health: \`${beasthealth}\``,
+	    }
+    )
     
     
     let Embed2 = new MessageEmbed()
@@ -22,21 +32,15 @@ module.exports = {
     .setDescription(`🏆 You dealt **${userdamage}** damage! The discord beast has died! You saved **${message.guild.name}**!`);
     
     
-    let Embed3 = new MessageEmbed()
-    .setColor("#2f3136")
-    .setDescription(`⬅️ The discord beast dealt **${beastdamage}** damage! And you have **${userhealth}** health left...`)
-    
-    
     let Embed4 = new MessageEmbed()
     .setColor("#2f3136")
     .setDescription(`🐲 The discord beast dealt **${beastdamage}** damage! You have died! The discord beast destroyed **${message.guild.name}**!`)
     
     if (beasthealth <= 0)
-      return message.channel.send({ embeds: [Embed2] });
     message.channel.send({ embeds: [Embed1] }).then(console.log(`➡️ Dealt ${userdamage} damage to the discord beast in ${message.guild.name}! The discord beast now has ${beasthealth} health left!`));
     if (userhealth <= 0)
       return message.channel.send({ embeds: [Embed4] }).then((userhealth <= 0)((userhealth = userhealth)));
-    message.channel.send({ embeds: [Embed3] }).then(console.log(`⬅️ The discord beast dealt ${beastdamage} damage to the user! In ${message.guild.name}! The user now has ${userhealth} health left!`));
+    message.channel.send({ embeds: [Embed1] }).then(console.log(`⬅️ The discord beast dealt ${beastdamage} damage to the user! In ${message.guild.name}! The user now has ${userhealth} health left!`));
 
   },
 };
