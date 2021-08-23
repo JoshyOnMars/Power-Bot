@@ -7,7 +7,7 @@ module.exports = {
     .setColor("RANDOM")
     .setAuthor(`${message.author.username}'s Balance`)
     .addField(`💰Wallet`, `${profileData.coins}`)
-    .addField(`🏦Bank`, `${profileData.bank}`)
+    .addField(`🏦Bank`, `${profileData.bank}/1000`)
     .setTimestamp()
     message.channel.send({ embeds: [embed] });
   },
