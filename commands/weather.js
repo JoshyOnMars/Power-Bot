@@ -16,7 +16,7 @@ module.exports = {
         var location = result[0].location;
 
         const weatherinfo = new MessageEmbed()
-        .setDescription(`**${current.skytext}**, Time: ${current.observationtime}`)
+        .setDescription(`**${current.skytext}, Day & Time: \`${current.day}\`, \`${current.observationtime}\`**`)
         .setAuthor(`Weather forecast for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
         .setColor("BLUE")
