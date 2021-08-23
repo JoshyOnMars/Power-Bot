@@ -2,6 +2,7 @@ const fs = require('fs');
 const { Client, Collection, Intents, MessageEmbed, GuildMember } = require('discord.js');
 require("dotenv").config();
 const mongoose = require("mongoose");
+const fetch = require("node-fetch")
 const profileModel = require("./models/profileSchema");
 const badwordsArray = require("./badwords.js")
 
@@ -36,6 +37,14 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	client.user.setActivity(`starship`, { type: 'WATCHING' });
+        fetch('https://fdo.rocketlaunch.live/json/launches/next/5', {
+        method: 'GET',
+        body: JSON.stringify({
+        foo: "bar"
+        })
+        }).then(res => {
+        console.log(res.body)
+        })
 });
 
 client.on('guildMemberAdd', async member => {
