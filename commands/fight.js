@@ -37,8 +37,8 @@ module.exports = {
     .setDescription(`🐲 The discord beast dealt **${beastdamage}** damage! You have died! The discord beast destroyed **${message.guild.name}**!`)
     
     if (beasthealth <= 0)
-    	//return message.channel.send({ embeds: [Embed2] }).then((beasthealth <= 0)((beasthealth = beasthealth)));
-    	message.channel.send({ embeds: [Embed2] })
+    	return message.channel.send({ embeds: [Embed2] })
+    	message.channel.send({ embeds: [Embed1] })
     if (userhealth <= 0)
     	return message.channel.send({ embeds: [Embed4] }).then((userhealth <= 0)((userhealth = userhealth)));
     	message.channel.send({ embeds: [Embed1] })
