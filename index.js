@@ -48,8 +48,8 @@ let profile = await profileModel.create({
   profile.save();
 })
 
-client.on('messageCreate', async (message, Discord) => {
-	let foundInText = false;
+client.on('messageCreate', async message => {
+	let foundInText = false
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
 	if (message.channel.name === "😂memes-zone") return;
@@ -90,7 +90,7 @@ client.on('messageCreate', async (message, Discord) => {
 	const command = args.shift().toLowerCase();
 	
 	if(!cooldowns.has(command.name)){
-        cooldowns.set(command.name, new Discord.Collection());
+        cooldowns.set(command.name, new client.Collection());
     }
 
     const current_time = Date.now();
