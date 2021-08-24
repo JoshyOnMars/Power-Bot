@@ -14,6 +14,6 @@ module.exports = {
     .addField(`💰Wallet`, `${bal.coins}`)
     .addField(`🏦Bank`, `${bal.bank}/1000`)
     .setTimestamp()
-    message.channel.send({ embeds: [embed] });
+    message.reply({ embeds: [embed] });
   },
 };
