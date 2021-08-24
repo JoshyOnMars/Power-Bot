@@ -8,6 +8,8 @@ module.exports = {
    
     const number = args[1]
     const input = args[0]
+    
+    if (!input) { return message.channel.send(`Please specify what you want to do, \`withdraw\`/\`deposit <amount>\``)}
                       
     if (input === "deposit") {
         if (!number) { return message.channel.send(`Please specify the amount you want to deposit! (Min 1000 coins)`)}
