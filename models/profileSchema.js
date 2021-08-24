@@ -5,6 +5,7 @@ const profileSchema = new mongoose.Schema({
   serverID: { type: String, require: true },
   coins: { type: Number, default: 1000 },
   bank: { type: Number },
+  job: { type: String, default: 'none' },
   modLogs: { type: Number, default: 0 },
 });
 
