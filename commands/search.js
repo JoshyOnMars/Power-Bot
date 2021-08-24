@@ -30,7 +30,7 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            message.channel.send(`${message.author}, You picked \`${collector}\` and found ${earnings} coins!`);
+            message.channel.send(`${message.author}, You picked \`${collector.filter}\` and found ${earnings} coins!`);
 
             await profileModel.findOneAndUpdate(
                 {
