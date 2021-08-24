@@ -8,7 +8,7 @@ module.exports = {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     
-    const bal = await profileData.coins#findOne({ userID: `${mentionedUser.id}` });
+    const bal = await profileData.coins.FindOne({ userID: `${mentionedUser.id}` });
     console.log(bal.wallet);
     
     if (mentionedUser.profileData.coins < randomNumber) { 
