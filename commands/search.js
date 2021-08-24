@@ -30,7 +30,7 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            return message.channel.send(`You found ${earnings} coins!`);
+            message.channel.send(`You found ${earnings} coins!`);
 
             await profileModel.findOneAndUpdate(
                 {
