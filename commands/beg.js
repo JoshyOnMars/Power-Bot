@@ -3,6 +3,7 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "beg",
+  category: "Currency",
   cooldown: 300,
   async execute(message, args, client, profileData) {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
