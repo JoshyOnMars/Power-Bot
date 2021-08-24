@@ -4,12 +4,11 @@ const { MessageEmbed} = require("discord.js");
 module.exports = {
     name: "help",
     description: 'Well the command you are using :/',
-    aliases: ["?", "Help", "HELP"],
     category: 'Info',
     async execute(message, args, client) {
 
-    let { infoSize, modSize } = newFunction_1(client);
-    let { infoCategory, modCategory } = newFunction(client);
+    let { infoSize, modSize, currencySize } = newFunction_1(client);
+    let { infoCategory, modCategory, currencyCategory } = newFunction(client);
     let helpMenuEmbed = new MessageEmbed()
       .setAuthor(`${client.user.username}s Commands`, client.user.displayAvatarURL())
       .setColor("#2f3136")
@@ -22,6 +21,10 @@ module.exports = {
         {
           name: `Moderation [${modSize}]`,
           value: `${modCategory}`,
+        },
+        {
+          name: `Currency [${currencySize}]`,
+          value: `${currencyCategory}`,
         },
       )
 
@@ -53,11 +56,13 @@ module.exports = {
 function newFunction_1(client) {
   let infoSize = client.commands.filter(c => c.category === "Info").size;
   let modSize = client.commands.filter(c => c.category === "Moderation").size;
-  return { infoSize, modSize };
+  let currencySize = client.commands.filter(c => c.category === "Currency").size;
+  return { infoSize, modSize, currencySize };
 }
 
 function newFunction(client) {
   let infoCategory = client.commands.filter(c => c.category === "Info").map(m => `\`${m.name}\``).join(" ");
   let modCategory = client.commands.filter(c => c.category === "Moderation").map(m => `\`${m.name}\``).join(" ");
-  return { infoCategory, modCategory };
+  let currencyCategory = client.commands.filter(c => c.category === "Currency").map(m => `\`${m.name}\``).join(" ");
+  return { infoCategory, modCategory, currencyCategory };
 }
