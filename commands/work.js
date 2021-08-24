@@ -9,7 +9,7 @@ module.exports = {
       {job: "YouTuber", salary: 10000},
       {job: "Streamer", salary: 15000}
     ]
-    
+    console.log("[insert random string here]")
     console.log(jobs[0].job)
     console.log(jobs[0].salary)
     
