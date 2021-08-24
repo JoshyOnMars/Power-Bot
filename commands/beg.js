@@ -6,7 +6,7 @@ module.exports = {
   category: "Currency",
   cooldown: 300,
   async execute(message, args, client, profileData) {
-    const randomNumber = Math.floor(Math.random() * 500) + 1;
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
     
