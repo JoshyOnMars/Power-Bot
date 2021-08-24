@@ -24,7 +24,7 @@ module.exports = {
 
         const filter = ({ author, content }) => message.author == author && chosenLocations.some((location) => location.toLowerCase() == content.toLowerCase());
 
-        const collector = message.channel.createMessageCollector(filter, { max: 1, time: 25000 });
+        const collector = message.channel.createMessageCollector({ filter, time: 25000 });
 
         const earnings = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
 
