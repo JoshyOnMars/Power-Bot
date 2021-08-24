@@ -8,7 +8,7 @@ module.exports = {
   
     const wait = require('util').promisify(setTimeout);
 
-    // ...
+    message.channel.send("lol")
 
     collector.on('collect', async i => {
 	      if (i.customId === 'primary') {
