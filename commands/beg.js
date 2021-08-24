@@ -20,6 +20,11 @@ module.exports = {
         },
       }
     );
-    return message.channel.send(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`);
+    let embed = new MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`)
+    .setFooter(`Wallet: ${profileData.coins}`)
+    .setTimestamp()
+    return message.channel.send({ embeds: [embed] });
   },
 };
