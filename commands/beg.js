@@ -25,6 +25,6 @@ module.exports = {
     .setDescription(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`)
     .setFooter(`Wallet: ${profileData.coins}`)
     .setTimestamp()
-    return message.channel.send({ embeds: [embed] });
+    await message.channel.send({ embeds: [embed] });
   },
 };
