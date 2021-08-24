@@ -9,8 +9,8 @@ module.exports = {
       {job: "YouTuber", salary: 10000},
       {job: "Streamer", salary: 15000}
     ]
-    for (const {job, salary} of jobs) {
-    console.log(`${jobs.job}: ${jobs.salary} coins per hour`)
+    for (const i of jobs) {
+    console.log(`${i.job}: ${i.salary} coins per hour`)
     }
     
     //const response = await profileModel.findOneAndUpdate(
