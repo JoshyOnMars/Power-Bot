@@ -102,6 +102,8 @@ client.on('messageCreate', async message => {
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName)
 	
+	if(!command) return;
+	
 	const { cooldowns } = client;
 
 	if (!cooldowns.has(command.name)) {
