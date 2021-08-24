@@ -11,12 +11,12 @@ module.exports = {
     const bal = await profileModel.findOne({ userID: `${mentionedUser.id}` });
     console.log(bal.coins);
     
-    if (mentionedUser.profileData.coins < randomNumber) { 
-      const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: mentionedUser.profileData.coins,},});
-      const response2 = await profileModel.findOneAndUpdate({userID: mentionedUser.id,},{$inc: {coins: -mentionedUser.profileData.coins,},});
-      return message.channel.send(`${message.author}, You stole ${mentionedUser.profileData.coins} coins from **${mentionedUser.username}**!`) 
+    if (bal.coins < randomNumber) { 
+      const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: bal.coins,},});
+      const response2 = await profileModel.findOneAndUpdate({userID: mentionedUser.id,},{$inc: {coins: -bal.coins,},});
+      return message.channel.send(`${message.author}, You stole ${bal.coins} coins from **${mentionedUser.username}**!`) 
     }
-    if (mentionedUser.profileData.coins < 1) {
+    if (bal.coins < 1) {
       return message.reply(`**${mentionedUser.username}** has no coins in their Wallet for you to steal!`)
     }
     
