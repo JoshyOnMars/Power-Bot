@@ -23,8 +23,7 @@ module.exports = {
     let embed = new MessageEmbed()
     .setColor("RANDOM")
     .setDescription(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`)
-    .setFooter(`Wallet: ${profileData.coins}`)
     .setTimestamp()
-    await message.channel.send({ embeds: [embed] });
+    return message.channel.send({ embeds: [embed] });
   },
 };
