@@ -5,20 +5,22 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "test",
   async execute(message, args, client, profileData) {
-  
-    const wait = require('util').promisify(setTimeout);
+	
+	const row = new MessageActionRow()
+		.addComponents(
+		const button = new MessageButton()
+		.setCustomId('primary')
+		.setLabel('Primary')
+		.setStyle('PRIMARY')
+		);
 
-    message.channel.send("lol")
+	const embed = new MessageEmbed()
+		.setColor('#0099ff')
+		.setTitle('Some title')
+		.setURL('https://discord.js.org')
+		.setDescription('Some description here');
 
-    collector.on('collect', async i => {
-	      if (i.customId === 'primary') {
-		          await i.deferUpdate();
-		          await wait(4000);
-		          await i.editReply({ content: 'A button was clicked!', components: [] });
-	            }
-    });
-
-collector.on('end', collected => console.log(`Collected ${collected.size} items`));
+	await message.reply({ content: 'Pong!', ephemeral: true, embeds: [embed], components: [row] });
     
   },
 };
