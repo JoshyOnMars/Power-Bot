@@ -26,7 +26,7 @@ module.exports = {
     );
     let embed = new MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`${message.author}, You begged and **${num}** gave you ${randomNumber} coins!`)
+    .setDescription(`${message.author}, You begged and **${randomName}** gave you ${num} coins!`)
     .setTimestamp()
     return message.reply({ embeds: [embed] });
   },
