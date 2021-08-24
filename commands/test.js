@@ -18,6 +18,10 @@ module.exports = {
 
 	await message.reply({ content: 'Pong!', components: [row] });
 	  
+	const filter = i => i.customId === 'primary' && i.user.id === '691634056278048778';
+
+	const collector = message.channel.createMessageComponentCollector({ filter, time: 15000 });
+	  
 	collector.on('collect', async i => {
 	if (i.customId === 'primary') {
 		await i.deferUpdate();
