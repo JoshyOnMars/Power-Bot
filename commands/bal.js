@@ -3,6 +3,7 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "bal",
+  category: "Currency",
   async execute(message, args, client, profileData) {
     let user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author;
     const bal = await profileModel.findOne({ userID: `${user.id}` });
