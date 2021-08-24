@@ -15,7 +15,7 @@ module.exports = {
         let current = result[0].current;
         let location = result[0].location;
 
-        let fahrenheit = current.temperature × 9/5 + 32
+        let fahrenheit = current.temperature * 9/5 + 32
             
         const weatherinfo = new MessageEmbed()
         .setDescription(`**${current.skytext}**`)
