@@ -8,6 +8,6 @@ module.exports = {
   async execute(message, args, client) {
     const response = await fetch('https://fdo.rocketlaunch.live/json/launches/next/25');
     const {result} = await response.json();
-    for (const {provider, vehicle} of result)  message.channel.send(`${provider.name}, ${vehicle.name}`);
+    for (const {provider, vehicle, missions} of result)  message.channel.send(`${vehicle.name} [${missions.name}]`);
   },
 };
