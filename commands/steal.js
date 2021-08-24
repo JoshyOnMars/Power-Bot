@@ -3,7 +3,8 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "steal",
-  cooldown: 1,
+  category: "Currency",
+  cooldown: 1800,
   async execute(message, args, client, profileData) {
     const randomNumber = Math.floor(Math.random() * 500) + 1;
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
