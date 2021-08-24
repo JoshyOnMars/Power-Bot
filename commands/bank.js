@@ -4,6 +4,7 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "bank",
+  category: "Currency",
   async execute(message, args, client, profileData) {
    
     const number = args[1]
