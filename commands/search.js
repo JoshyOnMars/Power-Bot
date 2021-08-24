@@ -32,7 +32,7 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            message.channel.send(`${message.author}, You found ${earnings} coins!`);
+            message.reply(`${message.author}, You found ${earnings} coins!`);
 
             await profileModel.findOneAndUpdate(
                 {
@@ -48,11 +48,11 @@ module.exports = {
 
         collector.on('end', (collected, reason) => {
             if (reason == "time") {
-                message.channel.send('You ran out of time!');
+                message.reply('You ran out of time!');
             }
         });
 
 
-        message.channel.send(`<@${message.author.id}> Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``);
+        message.reply(`<@${message.author.id}> Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``);
     }
 }
