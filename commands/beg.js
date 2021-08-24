@@ -6,7 +6,11 @@ module.exports = {
   category: "Currency",
   cooldown: 40,
   async execute(message, args, client, profileData) {
-    const randomNumber = Math.floor(Math.random() * 10000) + 1;
+
+    function randomNum(max) {
+    return Math.floor(Math.random() * max);
+    }
+    const num = randomNum(5000)
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
     
@@ -16,13 +20,13 @@ module.exports = {
       },
       {
         $inc: {
-          coins: randomNumber,
+          coins: num,
         },
       }
     );
     let embed = new MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`)
+    .setDescription(`${message.author}, You begged and **${num}** gave you ${randomNumber} coins!`)
     .setTimestamp()
     return message.reply({ embeds: [embed] });
   },
