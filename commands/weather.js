@@ -15,12 +15,14 @@ module.exports = {
         let current = result[0].current;
         let location = result[0].location;
 
+        let fahrenheit = current.temperature × 9/5 + 32
+            
         const weatherinfo = new MessageEmbed()
         .setDescription(`**${current.skytext}**`)
         .setAuthor(`Weather forecast for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
         .setColor("BLUE")
-        .addField('Temperature', `${current.temperature}°C`, true)
+        .addField('Temperature', `${current.temperature}°C|${fahrenheit}°F`, true)
         .addField('Wind', current.winddisplay, true)
         .addField('Humidity', `${current.humidity}%`, true)
 
