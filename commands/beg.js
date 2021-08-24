@@ -24,6 +24,6 @@ module.exports = {
     .setColor("RANDOM")
     .setDescription(`${message.author}, You begged and **${randomName}** gave you ${randomNumber} coins!`)
     .setTimestamp()
-    return message.channel.send({ embeds: [embed] });
+    return message.reply({ embeds: [embed] });
   },
 };
