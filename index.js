@@ -52,6 +52,7 @@ let profile = await profileModel.create({
     serverID: member.guild.id,
     coins: 1000,
     bank: 0,
+    job: 'none',
     modLogs: 0,
   });
   profile.save();
@@ -88,6 +89,7 @@ client.on('messageCreate', async message => {
         	serverID: message.guild.id,
         	coins: 1000,
         	bank: 0,
+		job: 'none',
 		modeLogs: 0,
       	   });
       		profile.save();
