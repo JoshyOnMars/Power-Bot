@@ -14,10 +14,19 @@ module.exports = {
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
     let phrases = [`Oh you need money? Here have ${num} coins.`, 
-                   `LMAO you broke. Anyways here's ${num} coins.`,
+                   `LMAO you broke.`,
                    `Here's ${num} coins, buy yourself some milk.`
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+
+    if (randomPhrase === phrases[2]) {
+         let lose = new MessageEmbed()
+         .setColor("RANDOM")
+         .setTitle(`${randomName}`)
+         .setDescription(`"${randomPhrase}"`)
+         .setTimestamp()
+         return message.reply({ embeds [lose] })
+    }
 
     const response = await profileModel.findOneAndUpdate(
       {
