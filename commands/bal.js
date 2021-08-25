@@ -11,8 +11,8 @@ module.exports = {
     let embed = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(`${user.username}'s Balance`)
-    .addField(`💰Wallet`, `${bal.coins}`)
-    .addField(`🏦Bank`, `${bal.bank}/1000`)
+    .addField(`💰Wallet`, `${bal.coins.toLocaleString()}`)
+    .addField(`🏦Bank`, `${bal.bank.toLocaleString()}/1000`)
     .setTimestamp()
     message.reply({ embeds: [embed] });
   },
