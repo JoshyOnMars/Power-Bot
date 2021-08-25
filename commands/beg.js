@@ -15,7 +15,7 @@ module.exports = {
     let randomName = names[Math.floor(Math.random() * names.length)];
     let phrases = [`Oh you need money? Here have ${num} coins.`, 
                    `LMAO you broke.`,
-                   `Damn..`
+                   `Damn..`,
                    `Here's ${num} coins, buy yourself some milk.`
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
