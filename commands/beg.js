@@ -25,7 +25,7 @@ module.exports = {
          .setTitle(`${randomName}`)
          .setDescription(`"${randomPhrase}"`)
          .setTimestamp()
-         return message.reply({ embeds [lose] })
+         return message.reply({ embeds: [lose] })
     }
 
     const response = await profileModel.findOneAndUpdate(
