@@ -18,6 +18,8 @@ module.exports = {
                    `Damn..`,
                    `No get a job.`,
                    `ew`,
+                   `Sorry gonna use my money for Dogecoin.`,
+                   `Sorry man i don't have any change...`,
                    `Money?! HELL YEAH HERE'S **${num} COINS**!`,
                    `Here's **${num} coins**, buy yourself some milk.`,
                    `You poor thing.. Take **${num} coins**.`,
@@ -26,7 +28,7 @@ module.exports = {
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
-    if (randomPhrase.includes(phrases[1]) || randomPhrase.includes(phrases[2]) || randomPhrase.includes(phrases[3]) || randomPhrase.includes(phrases[4])) {
+    if (randomPhrase.includes(phrases[1]) || randomPhrase.includes(phrases[2]) || randomPhrase.includes(phrases[3]) || randomPhrase.includes(phrases[4]) || randomPhrase.includes(phrases[5]) || randomPhrase.includes(phrases[6])) {
          let lose = new MessageEmbed()
          .setColor("RED")
          .setTitle(`${randomName}`)
