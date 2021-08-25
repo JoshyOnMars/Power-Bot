@@ -36,7 +36,7 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            message.reply(`${message.author}, You found ${earnings} coins!`);
+            message.reply(`${message.author}, You found ${earnings.toLocaleString()} coins!`);
 
             await profileModel.findOneAndUpdate(
                 {
