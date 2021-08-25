@@ -13,11 +13,12 @@ module.exports = {
     const num = randomNum(4200)
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
-    let phrases = [`Oh you need money? Here have ${num} coins.`,
+    let phrases = [`Oh you need money? Here have **${num} coins**.`,
                    `LMAO you broke.`,
                    `Damn..`,
-                   `Money?! HELL YEAH HERE'S ${num} COINS!`,
-                   `Here's ${num} coins, buy yourself some milk.`
+                   `Money?! HELL YEAH HERE'S **${num} COINS**!`,
+                   `Here's **${num} coins**, buy yourself some milk.`,
+                   `You poor thing.. Take **${num} coins**.`,
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
