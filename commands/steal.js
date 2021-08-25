@@ -18,7 +18,7 @@ module.exports = {
     if (bal.coins < randomNumber) { 
       const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: bal.coins,},});
       const response2 = await profileModel.findOneAndUpdate({userID: mentionedUser.id,},{$inc: {coins: -bal.coins,},});
-      return message.reply(`${message.author}, You stole ${bal.coins} coins from **${mentionedUser.username}**!`) 
+      return message.reply(`${message.author}, You stole ${bal.coins.toLocaleString()} coins from **${mentionedUser.username}**!`) 
     }
     if (bal.coins < 1) {
       return message.reply(`**${mentionedUser.username}** has no coins in their Wallet for you to steal!`)
@@ -45,6 +45,6 @@ module.exports = {
       }
     );
     
-    return message.reply(`${message.author}, You stole ${randomNumber} coins from **${mentionedUser.username}**!`);
+    return message.reply(`${message.author}, You stole ${randomNumber.toLocaleString()} coins from **${mentionedUser.username}**!`);
   },
 };
