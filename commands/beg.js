@@ -20,7 +20,7 @@ module.exports = {
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
-    if (randomPhrase = `${phrases[1]}` || `${phrases[2]}`) {
+    if (randomPhrase == `${phrases[1]}` || `${phrases[2]}`) {
          let lose = new MessageEmbed()
          .setColor("RED")
          .setTitle(`${randomName}`)
