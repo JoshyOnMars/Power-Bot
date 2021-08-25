@@ -4,7 +4,7 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
     name: "search",
     category: "Currency",
-    cooldown: 1800,
+    cooldown: 45,
     async execute(message, args, client, profileData) {
 
         const locations = [
@@ -28,7 +28,11 @@ module.exports = {
 
         const collector = message.channel.createMessageCollector({ filter, max: 1, time: 25000 });
 
-        const earnings = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+        function randomNum(max) {
+            return Math.floor(Math.random() * max);
+        }
+        
+        const earnings = randomNum(2000)
 
 
         collector.on('collect', async (m) => {
