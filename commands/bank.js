@@ -30,7 +30,7 @@ module.exports = {
         const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: number,bank: -number,},});
         let embed2 = new MessageEmbed()
         .setColor("RANDOM")
-        .setDescription(`Withdrew ${number.toLocaleString())} coins from your Bank into your Wallet!`)
+        .setDescription(`Withdrew ${number.toLocaleString()} coins from your Bank into your Wallet!`)
         .setTimestamp()
         return message.reply({ embeds: [embed2]})
     }
