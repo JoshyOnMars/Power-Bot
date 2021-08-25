@@ -15,13 +15,14 @@ module.exports = {
     let randomName = names[Math.floor(Math.random() * names.length)];
     let phrases = [`Oh you need money? Here have ${num} coins.`, 
                    `LMAO you broke.`,
+                   `Damn..`
                    `Here's ${num} coins, buy yourself some milk.`
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
-    if (randomPhrase === phrases[2]) {
+    if (randomPhrase === phrases[1] || phrases[2]) {
          let lose = new MessageEmbed()
-         .setColor("RANDOM")
+         .setColor("RED")
          .setTitle(`${randomName}`)
          .setDescription(`"${randomPhrase}"`)
          .setTimestamp()
