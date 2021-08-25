@@ -6,7 +6,10 @@ module.exports = {
   category: "Currency",
   cooldown: 1800,
   async execute(message, args, client, profileData) {
-    const randomNumber = Math.floor(Math.random() * 500) + 1;
+    function randomNum(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const randomNumber = randomNum(1500)
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     
     const bal = await profileModel.findOne({ userID: `${mentionedUser.id}` });
