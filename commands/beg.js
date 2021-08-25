@@ -10,7 +10,7 @@ module.exports = {
     function randomNum(max) {
     return Math.floor(Math.random() * max);
     }
-    const num = randomNum(5000)
+    const num = randomNum(2000)
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
     
