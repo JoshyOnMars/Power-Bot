@@ -13,7 +13,12 @@ module.exports = {
     const num = randomNum(2000)
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
-    
+    let phrases = [`Oh you need money? Here have ${num} coins.`, 
+                   `LMAO you broke. Anyways here's ${num} coins.`,
+                   `Here's ${num} coins, buy yourself some milk.`
+                  ]
+    let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+
     const response = await profileModel.findOneAndUpdate(
       {
         userID: message.author.id,
@@ -26,7 +31,8 @@ module.exports = {
     );
     let embed = new MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`${message.author}, You begged and **${randomName}** gave you ${num} coins!`)
+    .setTitle(`${randomName}`)
+    .setDescription(`"${randomPhrase}"`)
     .setTimestamp()
     return message.reply({ embeds: [embed] });
   },
