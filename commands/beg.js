@@ -10,21 +10,21 @@ module.exports = {
     function randomNum(max) {
     return Math.floor(Math.random() * max);
     }
-    const num = randomNum(4200).toLocaleString()
+    const num = randomNum(4200)
     let names = require("../names.js")
     let randomName = names[Math.floor(Math.random() * names.length)];
-    let phrases = [`Oh you need money? Here have **${num} coins**.`,
+    let phrases = [`Oh you need money? Here have **${num.toLocaleString()} coins**.`,
                    `LMAO you broke.`,
                    `Damn..`,
                    `No get a job.`,
                    `ew`,
                    `Sorry gonna use my money for Dogecoin.`,
                    `Sorry man i don't have any change...`,
-                   `Money?! HELL YEAH HERE'S **${num} COINS**!`,
-                   `Here's **${num} coins**, buy yourself some milk.`,
-                   `You poor thing.. Take **${num} coins**.`,
-                   `Have **${num} coins**, don't spent it all at once.`,
-                   `Nice shirt, but- buy a better one with **${num} coins**..`
+                   `Money?! HELL YEAH HERE'S **${num.toLocaleString()} COINS**!`,
+                   `Here's **${num.toLocaleString()} coins**, buy yourself some milk.`,
+                   `You poor thing.. Take **${num.toLocaleString()} coins**.`,
+                   `Have **${num.toLocaleString()} coins**, don't spent it all at once.`,
+                   `Nice shirt, but- buy a better one with **${num.toLocaleString()} coins**..`
                   ]
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
