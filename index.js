@@ -72,10 +72,8 @@ client.on('messageCreate', async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
 	let profileData;
-	let serverData;
   	try {
     		profileData = await profileModel.findOne({ userID: message.author.id });
-		serverData = await serverModel.findOne({ serverID: message.guild.id });
     	if (!profileData) {
       		let profile = await profileModel.create({
         	userID: message.author.id,
