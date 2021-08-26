@@ -77,18 +77,20 @@ client.on('messageCreate', async message => {
     	if (serverData.badWords == false) return;
         }
         if (foundInText && serverData.badWords == true) {
+		message.delete()
+		
+		let embed = new MessageEmbed()
+        	.setColor("YELLOW")
+        	.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
+               	message.channel.send({ embeds: [embed] })
+		
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
                 if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
 
                 let embed2 = new MessageEmbed()
                 .setColor("YELLOW")
                 .setDescription(`${message.author} sent a blacklisted word in ${message.channel}`)
-        
-                let embed = new MessageEmbed()
-        .setColor("YELLOW")
-        .setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
-               message.delete().then(message.channel.send({ embeds: [embed] }))
-                channel.send({ embeds: [embed2] })
+		channel.send({ embeds: [embed2] })
     }
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
