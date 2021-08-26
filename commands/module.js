@@ -14,12 +14,19 @@ module.exports = {
     if (input === "enable") {
       if (input2 === "badwords") {
         await serverModel.findOneAndUpdate({serverID: message.guild.id,},{badWords: true})
-        message.reply(`Module \`badwords\` has been **enabled**`) }
+        message.reply(`Module \`badwords\` has been **enabled**`) 
+      } else if (input2 === "economy") {
+        await serverModel.findOneAndUpdate({serverID: message.guild.id,},{economy: true})
+        message.reply(`Module \`economy\` has been **enabled**`)
+      }
       
     } else if (input === "disable") {
       if (input2 === "badwords") {
         await serverModel.findOneAndUpdate({serverID: message.guild.id,},{badWords: false})
         message.reply(`Module \`badwords\` has been **disabled**`)
+      } else if (input2 === "economy") {
+        await serverModel.findOneAndUpdate({serverID: message.guild.id,},{economy: false})
+        message.reply(`Module \`economy\` has been **disabled**`)
       }
     }
   },
