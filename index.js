@@ -87,7 +87,6 @@ client.on('messageCreate', async message => {
       	   });
       		profile.save();
 	}
-    	   }
   	   } catch (err) {
     		console.log(err);
   	   }
