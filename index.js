@@ -74,7 +74,7 @@ client.on('messageCreate', async message => {
 	serverData = await serverModel.findOne({ serverID: message.guild.id });
         for (var i in badwordsArray) {
          if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-    	if (serverData.badWords === false) return;
+    	if (serverData.badWords == false) return;
         }
         if (foundInText && serverData.badWords == true) {
 		message.delete()
