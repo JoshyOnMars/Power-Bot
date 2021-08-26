@@ -47,6 +47,15 @@ client.on('ready', () => {
         }})
 });
 
+client.on('guildCreate', async guild => {
+let server = await serverModel.create({
+    serverID: guild.id,
+    logChannel: 'none',
+    badWords: false,
+  });
+  server.save();
+})
+
 client.on('guildMemberAdd', async member => {
 let profile = await profileModel.create({
     userID: member.id,
