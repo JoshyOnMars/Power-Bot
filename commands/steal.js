@@ -5,7 +5,9 @@ module.exports = {
   name: "steal",
   category: "Currency",
   cooldown: 1800,
-  async execute(message, args, client, profileData) {
+  async execute(message, args, client, profileData, serverData) {
+    if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
+    
     function randomNum(max) {
       return Math.floor(Math.random() * max);
     }
