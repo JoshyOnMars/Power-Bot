@@ -4,7 +4,8 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "bal",
   category: "Currency",
-  async execute(message, args, client, profileData) {
+  async execute(message, args, client, profileData, serverData) {
+    if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
     let user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author;
     const bal = await profileModel.findOne({ userID: `${user.id}` });
     
