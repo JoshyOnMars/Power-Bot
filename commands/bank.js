@@ -5,7 +5,8 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "bank",
   category: "Currency",
-  async execute(message, args, client, profileData) {
+  async execute(message, args, client, profileData, serverData) {
+    if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
    
     const number = args[1]
     const input = args[0]
