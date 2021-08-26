@@ -36,7 +36,7 @@ mongoose
 
 client.on('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity(`starship`, { type: 'WATCHING' });
+	client.user.setActivity(`.help`, { type: 'PLAYING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
         .then(json => {
@@ -62,7 +62,6 @@ client.on('messageCreate', async message => {
 	let foundInText = false
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-	if (message.channel.name === "😂memes-zone") return;
     	}
     	if (foundInText) {
                 let logChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
@@ -130,7 +129,7 @@ client.on('messageCreate', async message => {
 		client.commands.get(commandName).execute(message, args, client, profileData)
 	} catch (error) {
 		console.error(error);
-		message.reply('There was an error trying to execute that command, pinging <@691634056278048778> to fix it!');
+		message.reply('There was an error trying to execute that command!');
 	}
 	});
 
