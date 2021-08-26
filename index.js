@@ -4,6 +4,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const fetch = require("node-fetch")
 const profileModel = require("./models/profileSchema");
+const serverModel = require("./models/serverSchema");
 const badwordsArray = require("./badwords.js")
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
@@ -59,13 +60,45 @@ let profile = await profileModel.create({
 })
 
 client.on('messageCreate', async message => {
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	
+	let profileData;
+	let serverData;
+  	try {
+    		profileData = await profileModel.findOne({ userID: message.author.id });
+		serverData = await serverModel.findOne({ serverID: message.guild.id });
+    	if (!profileData) {
+      		let profile = await profileModel.create({
+        	userID: message.author.id,
+        	serverID: message.guild.id,
+        	coins: 1000,
+        	bank: 0,
+		job: 'none',
+		modLogs: 0,
+      	   });
+      		profile.save();
+	if (!serverData) {
+		let server = await serverModel.create({
+		serverID: message.guild.id,
+ 	 	logChannel: 'none',
+  		badWords: false,
+	   });
+		server.save();
+	}
+    	   }
+  	   } catch (err) {
+    		console.log(err);
+  	   }
+	
 	let foundInText = false
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
+	if (serverData.badWords === false) return;
+	if ()
     	}
-    	if (foundInText) {
-                let logChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
-                if (!logChannel) return message.channel.send("There is no channel called 'log', please create one and make sure the bot can send messages in it!");
+    	if (foundInText && serverData.badWords === true) {
+                let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
+                if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
 
                 let embed2 = new MessageEmbed()
                 .setColor("YELLOW")
@@ -75,27 +108,8 @@ client.on('messageCreate', async message => {
 		.setColor("YELLOW")
 		.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
        		message.delete().then(message.channel.send({ embeds: [embed] }))
-                logChannel.send({ embeds: [embed2] })
+                channel.send({ embeds: [embed2] })
 	}
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
-	
-	let profileData;
-  	try {
-    		profileData = await profileModel.findOne({ userID: message.author.id });
-    	if (!profileData) {
-      		let profile = await profileModel.create({
-        	userID: message.author.id,
-        	serverID: message.guild.id,
-        	coins: 1000,
-        	bank: 0,
-		job: 'none',
-		modeLogs: 0,
-      	   });
-      		profile.save();
-    	   }
-  	   } catch (err) {
-    		console.log(err);
-  	   }
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
@@ -126,7 +140,7 @@ client.on('messageCreate', async message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		client.commands.get(commandName).execute(message, args, client, profileData)
+		client.commands.get(commandName).execute(message, args, client, profileData, serverData)
 	} catch (error) {
 		console.error(error);
 		message.reply('There was an error trying to execute that command!');
