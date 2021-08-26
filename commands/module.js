@@ -3,7 +3,6 @@ const serverModel = require("../models/serverSchema");
 
 module.exports = {
   name: "module",
-  category: "Enable/Disable Modules",
   async execute(message, args, client, serverData) {
     
     //let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
@@ -15,8 +14,7 @@ module.exports = {
     if (input === "enable") {
       if (input2 === "badwords") {
         await serverModel.findOneAndUpdate({serverID: message.guild.id,},{badWords: true})
-        message.reply(`Module \`badwords\` has been **enabled**`)
-      }
+        message.reply(`Module \`badwords\` has been **enabled**`) }
       
     } else if (input === "disable") {
       if (input2 === "badwords") {
