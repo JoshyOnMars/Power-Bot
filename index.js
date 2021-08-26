@@ -92,9 +92,9 @@ client.on('messageCreate', async message => {
 	let foundInText = false
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-	if (serverData.badWords = false) return;
+	if (serverData.badWords == false) return;
     	}
-    	if (foundInText && serverData.badWords = true) {
+    	if (foundInText && serverData.badWords == true) {
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
                 if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
 
