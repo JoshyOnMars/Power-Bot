@@ -5,6 +5,8 @@ module.exports = {
           description: "Find your answers you're looking for with this command!",
     	  category: 'Info',
 	  async execute(message, args, client) {
+		  
+	if (!message.guild.id === "793016551682867250") return;
 
         const inputThing = args[0];
         
