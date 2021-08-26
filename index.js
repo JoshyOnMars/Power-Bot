@@ -94,7 +94,6 @@ client.on('messageCreate', async message => {
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
 	if (serverData.badWords === false) return;
-	if ()
     	}
     	if (foundInText && serverData.badWords === true) {
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
