@@ -72,6 +72,7 @@ client.on('messageCreate', async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	
 	let profileData;
+	let serverData;where
   	try {
     		profileData = await profileModel.findOne({ userID: message.author.id });
     	if (!profileData) {
@@ -85,20 +86,15 @@ client.on('messageCreate', async message => {
       	   });
       		profile.save();
 	}
-  	   } catch (err) {
-    		console.log(err);
-  	   }
+		serverData = await serverModel.findOne({ serverID: message.guild.id });
+		console.log(serverData)
 	
-	let serverData;
-	serverData = await serverModel.findOne({ serverID: message.guild.id });
-	console.log(serverData)
-	
-	let foundInText = false
-    	for (var i in badwordsArray) {
-      	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-	if (serverData.badWords === false) return console.log("test");
-    	}
-    	if (foundInText && serverData.badWords === true) {
+		let foundInText = false
+    		for (var i in badwordsArray) {
+      		if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
+		if (serverData.badWords === false) return console.log("test");
+    		}
+    		if (foundInText && serverData.badWords === true) {
 		console.log("testing")
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
                 if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
@@ -113,6 +109,9 @@ client.on('messageCreate', async message => {
        		message.delete().then(message.channel.send({ embeds: [embed] }))
                 channel.send({ embeds: [embed2] })
 	}
+  	   } catch (err) {
+    		console.log(err);
+  	   }
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
