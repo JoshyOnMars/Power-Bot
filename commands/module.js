@@ -6,8 +6,8 @@ module.exports = {
   category: "Enable/Disable Modules",
   async execute(message, args, client, serverData) {
     
-    let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
-    if (!mentionedUser) { return message.reply(`Please provide a user you want to give money to! Like this: \`.give [user] <amount>\``) }
+    //let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+    //if (!mentionedUser) { return message.reply(`Please provide a user you want to give money to! Like this: \`.give [user] <amount>\``) }
     
     let input = args[0]
     let input2 = args[1]
