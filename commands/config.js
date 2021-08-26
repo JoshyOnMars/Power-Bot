@@ -18,6 +18,7 @@ module.exports = {
           let logchannel = message.mentions.channels.first()
           if (!logchannel) return message.reply(`Please mention the channel you want to use as a logging channel.`);
       await serverModel.findOneAndUpdate({serverID: message.guild.id,},{logChannel: logchannel.id})
+      message.reply(`Set logging channel to ${logchannel}`)
     }
   },
 };
