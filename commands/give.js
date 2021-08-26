@@ -5,7 +5,8 @@ module.exports = {
   name: "give",
   category: "Currency",
   cooldown: 15,
-  async execute(message, args, client, profileData) {
+  async execute(message, args, client, profileData, serverData) {
+    if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
     
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     if (!mentionedUser) { return message.reply(`Please provide a user you want to give money to! Like this: \`.give [user] <amount>\``) }
