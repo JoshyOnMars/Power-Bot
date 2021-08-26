@@ -92,11 +92,13 @@ client.on('messageCreate', async message => {
 	let foundInText = false
 	let serverData;
 	serverData = await serverModel.findOne({ serverID: message.guild.id });
+	console.log(serverData)
     	for (var i in badwordsArray) {
       	if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
-	if (serverData.badWords === false) return;
+	if (serverData.badWords === false) return console.log("test");
     	}
     	if (foundInText && serverData.badWords === true) {
+		console.log("testing")
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
                 if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
 
