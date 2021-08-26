@@ -15,7 +15,7 @@ module.exports = {
     if (input === "enable") {
       if (input2 === "badwords") {
         if (serverData.badWords === true) return message.reply(`That module is already enabled!`);
-        await serverModel.findOneAndUpdate({serverID: message.guild.id,},{$inc:{badWords: true},})
+        await serverModel.findOneAndUpdate({serverID: message.guild.id,},{badWords: true},)
         message.reply(`Module \`badwords\` has been **enabled**`)
       }
       
