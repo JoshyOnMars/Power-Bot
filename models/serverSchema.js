@@ -6,6 +6,6 @@ const serverSchema = new mongoose.Schema({
   badWords: { type: Boolean, default: false },
 });
 
-const model = mongoose.model("ServerModels", serverprofileSchema);
+const model = mongoose.model("ServerModels", serverSchema);
 
 module.exports = model;
