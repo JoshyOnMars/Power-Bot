@@ -72,8 +72,6 @@ client.on('messageCreate', async message => {
 	let foundInText = false
 	let serverData;
 	serverData = await serverModel.findOne({ serverID: message.guild.id });
-	console.log(foundInText)
-	console.log(serverData.badWords)
         for (var i in badwordsArray) {
          if (message.content.toLowerCase().includes(badwordsArray[i].toLowerCase())) foundInText = true;
     	if (serverData.badWords == false) return;
