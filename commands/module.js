@@ -5,7 +5,7 @@ module.exports = {
   name: "module",
   category: "Moderation",
   async execute(message, args, client, serverData) {
-    if (!message.author.permissions.has("MANAGE_MESSAGES")) return message.reply(`You don't have the permission \`MANAGE_MESSAGES\` to run this command!`)
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply(`You don't have the permission \`MANAGE_MESSAGES\` to run this command!`)
     
     //let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     //if (!mentionedUser) { return message.reply(`Please provide a user you want to give money to! Like this: \`.give [user] <amount>\``) }
