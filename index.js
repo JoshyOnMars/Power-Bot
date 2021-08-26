@@ -52,6 +52,7 @@ let server = await serverModel.create({
     serverID: guild.id,
     logChannel: 'none',
     badWords: false,
+    economy: false,
   });
   server.save();
 })
