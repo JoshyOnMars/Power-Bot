@@ -79,11 +79,6 @@ client.on('messageCreate', async message => {
         if (foundInText && serverData.badWords == true) {
 		message.delete()
 		
-		let embed = new MessageEmbed()
-        	.setColor("YELLOW")
-        	.setDescription(`${message.author}, Hey you can't use phrohibited/blacklisted words here!`)
-               	message.channel.send({ embeds: [embed] })
-		
                 let channel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
                 if (!channel) return message.channel.send("There is no channel for me to log moderation data, please create one and make sure the bot can send messages in it!");
 
