@@ -57,7 +57,7 @@ let server = await serverModel.create({
 })
 
 client.on('guildRemove', async guild => {
-await serverModel.delete({serverID: guild.id,});
+await serverModel.remove({serverID: guild.id,});
 })
 
 client.on('guildMemberAdd', async member => {
