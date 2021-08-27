@@ -23,7 +23,6 @@ module.exports = {
         const prefixEmbed = new Discord.MessageEmbed().setColor("YELLOW").setTitle("Prefix Changed!").setDescription(`My prefix for this server has been changed to \`${args[1]}\`.`)
         await serverData.findOneAndUpdate({serverID: message.guild.id,},{prefix: `${args[1]}`})
         return message.channel.send({ embeds: [prefixEmbed] });
-      }
     }
   },
 };
