@@ -10,7 +10,7 @@ module.exports = {
     let { infoCategory, currencyCategory, modCategory, utilityCategory} = newFunction(client);
     let helpMenuEmbed = new MessageEmbed()
       .setAuthor(`${client.user.username}s Commands`, client.user.displayAvatarURL())
-      .setColor("#2f3136")
+      .setColor("YELLOW")
       .setDescription(`You can also find extra info of a command by doing \`${client.prefix}help (command)\``)
       .addFields(
         {
@@ -35,7 +35,7 @@ module.exports = {
         let command = client.commands.get(args[0])
         let embed = new MessageEmbed()
         .setAuthor(`Command Information: ${command.name}`, client.user.displayAvatarURL())
-        .setColor("#2f3136")
+        .setColor("YELLOW")
         .addFields(
           {
             name: `Description:`,
