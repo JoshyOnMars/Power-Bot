@@ -1,4 +1,3 @@
-
 const { MessageEmbed} = require("discord.js");
 
 module.exports = {
@@ -7,24 +6,28 @@ module.exports = {
     category: 'Info',
     async execute(message, args, client) {
 
-    let { infoSize, modSize, currencySize } = newFunction_1(client);
-    let { infoCategory, modCategory, currencyCategory } = newFunction(client);
+    let { infoSize, currencySize, modSize, utilitySize } = newFunction_1(client);
+    let { infoCategory, currencyCategory, modCategory, utilityCategory} = newFunction(client);
     let helpMenuEmbed = new MessageEmbed()
       .setAuthor(`${client.user.username}s Commands`, client.user.displayAvatarURL())
       .setColor("#2f3136")
-      .setDescription(`You can also find extra info of a command by doing \`.help (command)\``)
+      .setDescription(`You can also find extra info of a command by doing \`${bot.prefix}help (command)\``)
       .addFields(
         {
           name: `Info [${infoSize}]`,
           value: `${infoCategory}`,
         },
         {
+          name: `Currency [${currencySize}]`,
+          value: `${currencyCategory}`,
+        },
+        {
           name: `Moderation [${modSize}]`,
           value: `${modCategory}`,
         },
         {
-          name: `Currency [${currencySize}]`,
-          value: `${currencyCategory}`,
+          name: `Utility [${utilitySize}]`,
+          value: `${utilityCategory}`,
         },
       )
 
@@ -36,7 +39,7 @@ module.exports = {
         .addFields(
           {
             name: `Description:`,
-            value: `\`${command.description}\``,
+            value: `\`${command.description || "None"}\``,
           },
           {
             name: `Usage:`,
@@ -44,7 +47,7 @@ module.exports = {
           },
           {
             name: `Category:`,
-            value: `\`${command.category}\``,
+            value: `\`${command.category || "None"}\``,
           }
         )
         return message.channel.send({ embeds: [embed]});
@@ -55,14 +58,16 @@ module.exports = {
 };
 function newFunction_1(client) {
   let infoSize = client.commands.filter(c => c.category === "Info").size;
-  let modSize = client.commands.filter(c => c.category === "Moderation").size;
   let currencySize = client.commands.filter(c => c.category === "Currency").size;
-  return { infoSize, modSize, currencySize };
+  let modSize = client.commands.filter(c => c.category === "Moderation").size;
+  let utilitySize = client.commands.filter(c => c.category === "Utility").size;
+  return { infoSize, currencySize, modSize, utilitySize };
 }
 
 function newFunction(client) {
   let infoCategory = client.commands.filter(c => c.category === "Info").map(m => `\`${m.name}\``).join(" ");
-  let modCategory = client.commands.filter(c => c.category === "Moderation").map(m => `\`${m.name}\``).join(" ");
   let currencyCategory = client.commands.filter(c => c.category === "Currency").map(m => `\`${m.name}\``).join(" ");
-  return { infoCategory, modCategory, currencyCategory };
+  let modCategory = client.commands.filter(c => c.category === "Moderation").map(m => `\`${m.name}\``).join(" ");
+  let utilityCategory = client.commands.filter(c => c.category === "Utility").map(m => `\`${m.name}\``).join(" ");
+  return { infoCategory, currencyCategory, modCategory, utilityCategory };
 }
