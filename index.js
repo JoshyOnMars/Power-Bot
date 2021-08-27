@@ -51,6 +51,7 @@ let server = await serverModel.create({
     logChannel: 'none',
     badWords: false,
     economy: false,
+    prefix: '.',
   });
   server.save();
 })
