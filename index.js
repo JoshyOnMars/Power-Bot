@@ -9,8 +9,6 @@ const badwordsArray = require("./badwords.js")
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 
-const prefix = process.env.PREFIX
-
 client.commands = new Collection();
 client.cooldowns = new Collection()
 
@@ -88,7 +86,7 @@ client.on('messageCreate', async message => {
 		channel.send({ embeds: [embed2] })
     }
 	client.prefix = ".";
-	const find = await serverData.finOne({ serverID: message.guild.id })
+	const find = await serverData.findOne({ serverID: message.guild.id })
 	if (find && find.prefix) client.prefix = find.prefix;
 	if (!message.content.startsWith(client.prefix) || message.author.bot) return;
 	
