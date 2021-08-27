@@ -5,6 +5,7 @@ const serverSchema = new mongoose.Schema({
   logChannel: { type: String, unique: true },
   badWords: { type: Boolean, default: false },
   economy: { type: Boolean, default: false },
+  prefix: { type: String, default: '.'},
 });
 
 const model = mongoose.model("ServerModels", serverSchema);
