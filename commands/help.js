@@ -11,7 +11,7 @@ module.exports = {
     let helpMenuEmbed = new MessageEmbed()
       .setAuthor(`${client.user.username}s Commands`, client.user.displayAvatarURL())
       .setColor("#2f3136")
-      .setDescription(`You can also find extra info of a command by doing \`${bot.prefix}help (command)\``)
+      .setDescription(`You can also find extra info of a command by doing \`${client.prefix}help (command)\``)
       .addFields(
         {
           name: `Info [${infoSize}]`,
