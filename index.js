@@ -87,7 +87,7 @@ client.on('messageCreate', async message => {
                 .setDescription(`${message.author} sent a blacklisted word in ${message.channel}`)
 		channel.send({ embeds: [embed2] })
     }
-	client.prefix = "d-";
+	client.prefix = ".";
 	const find = await serverData.finOne({ serverID: message.guild.id })
 	if (find && find.prefix) client.prefix = find.prefix;
 	if (!message.content.startsWith(client.prefix) || message.author.bot) return;
