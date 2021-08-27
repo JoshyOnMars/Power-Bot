@@ -19,7 +19,6 @@ module.exports = {
           message.reply(`Set logging channel to ${logchannel}`)
     } else if (input === "prefix") {
           if(!args[1]) return message.channel.send("Provide a prefix!");
-          if(args[1] === ".") return await serverModel.deleteOne({prefix: "."}).then(message.channel.send("Prefix has been set to default"));
           const prefixEmbed = new MessageEmbed().setColor("YELLOW").setTitle("Prefix Changed!").setDescription(`My prefix for this server has been changed to \`${args[1]}\`.`)
           await serverModel.findOneAndUpdate({serverID: message.guild.id,},{prefix: `${args[1]}`})
           return message.channel.send({ embeds: [prefixEmbed] });
