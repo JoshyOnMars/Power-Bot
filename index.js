@@ -53,6 +53,7 @@ let server = await serverModel.create({
     logChannel: 'none',
     badWords: false,
     economy: false,
+    prefix: ".",
   });
   server.save();
 })
@@ -87,7 +88,10 @@ client.on('messageCreate', async message => {
                 .setDescription(`${message.author} sent a blacklisted word in ${message.channel}`)
 		channel.send({ embeds: [embed2] })
     }
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	client.prefix = "d-";
+	const find = await serverData.finOne({ serverID: message.guild.id })
+	if (find && find.prefix) client.prefix = find.prefix;
+	if (!message.content.startsWith(client.prefix) || message.author.bot) return;
 	
 	let profileData;
   	try {
@@ -107,7 +111,7 @@ client.on('messageCreate', async message => {
     		console.log(err);
   	   }
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const args = message.content.slice(client.prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName)
 	
