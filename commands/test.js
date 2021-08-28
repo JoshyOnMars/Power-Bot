@@ -8,8 +8,15 @@ module.exports = {
 	  
 	  let embed = new MessageEmbed()
 	  
+	  function chunk(array, chunkSize){
+ 	  const chunked = [];
+          for(let i = 0; i < array.length; i += chunkSize)
+    	  chunked.push(array.slice(i, i + chunkSize));
+ 	  return chunked;
+	  }
+	  
 	  for (const [ name, { description } ] of client.commands) {
-	  embed.addField(`**${name}**`, `<:smth:881147807879286804>${description || "none"}`)
+          const chunkedArray = chunk(embed.addField(`**${name}**`, `<:smth:881147807879286804>${description || "none"}`), 10);
 	  }
 	  
 	  message.channel.send({ embeds: [embed] })
