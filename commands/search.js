@@ -25,12 +25,8 @@ module.exports = {
             "nosecone tent"
         ];
         
-        const items = ["_ _",
-                       "_ _",
-                       "And **1** banknote!",
-                       "_ _",
-                       "_ _",
-                       "_ _"
+        const items = [
+                       "And **1** banknote!"
                       ]
 
         const chosenLocations = locations.sort(() => Math.random() - Math.random()).slice(0, 3);
@@ -60,13 +56,15 @@ module.exports = {
                     },
                 }
             );
-           if (randomItems === items[2]) {
+           if (randomItems === items[1]) {
                await profileModel.findOneAndUpdate(
                 {
                     userID: message.author.id,
                 },
                 {
+                    $inc: {
                     bankSize: randomNum(500) 
+                    },
                 }
                 );
                 }
