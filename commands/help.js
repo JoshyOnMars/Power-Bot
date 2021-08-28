@@ -27,7 +27,7 @@ module.exports = {
         // Chunking the commands in smaller arrays. Leave second parameter blank to use default of 15, or choose your own size.
         // Note that Discord doesn't allow any embed to go over 25 fields, 2000 characters.
         chunk(clientCommands, 8).forEach((chunks) => {
-            const embed = new MessageEmbed().setTitle("Here's my commands!").setDescription(`My prefix is \`${client.prefix}\`!`);
+            const embed = new MessageEmbed().setTitle("Here's my commands!").setFooter(`Prefix: ${client.prefix}`);
             embed.addFields(chunks);
             embedPages.push(embed);
         });
