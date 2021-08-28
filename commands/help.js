@@ -22,13 +22,13 @@ module.exports = {
             embedPages.push(embed);
         }
       
-        const chunkedArray = chunk(embedPages, 10);
+        // const chunkedArray = chunk(embedPages, 10);
       
         pagination({
-            embeds: chunkedArray,
+            embeds: embedPages,
             channel: message.channel,
             author: message.author,
-            time: 30000,
+            time: 15000,
         });
     },
 };
