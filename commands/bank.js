@@ -17,7 +17,7 @@ module.exports = {
     if (input === "deposit") {
         if (!number) { return message.reply(`Please specify the amount you want to deposit! (Min ${profileData.bankSize} coins)`)}
         if (number > profileData.bankSize) { return message.reply(`Your amount is more than the min amount of ${profileData.bankSize} coins.`)}
-        if (profileData.bank > profileData.bankSize) { return message.reply(`You have the max amount of \`${profileData.bankSize}\` coins in your bank!`)}
+        if (profileData.bank > profileData.bankSize - 1) { return message.reply(`You have the max amount of \`${profileData.bankSize}\` coins in your bank!`)}
         if (profileData.coins < 1) { return message.reply(`You have no coins to deposit into your bank!`)}
         const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: -number,bank: number,},});
         let embed = new MessageEmbed()
