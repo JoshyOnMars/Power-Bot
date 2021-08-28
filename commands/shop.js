@@ -8,8 +8,17 @@ module.exports = {
   async execute(message, args, client) {
 
     let shopItems = [
-      ["🍪 Cookie", "Delicately baked for your sweet tooth! \n - Grandma", 5],
-      ["🍰 Slice Of Cake", "Have a slice!", 10],
+      ["item1", "itemdesc1", 5],
+      ["item2", "itemdesc2", 10],
+      ["item3", "itemdesc3", 15],
+      ["item4", "itemdesc4", 20],
+      ["item5", "itemdesc5", 25],
+      ["item6", "itemdesc6", 30],
+      ["item7", "itemdesc7", 35],
+      ["item8", "itemdesc8", 40],
+      ["item9", "itemdesc9", 45],
+      ["item10", "itemdesc10", 50],
+      ["item11", "itemdesc11", 55],
     ];
     
         // Chunk array in smaller chunks
