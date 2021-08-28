@@ -31,12 +31,6 @@ module.exports = {
             embed.addFields(chunks);
             embedPages.push(embed);
         });
-
-      
-        if (args[1] === client.commands.name) {
-        
-            return message.channel.send(`${args[1]}`)
-        }
         
         pagination({
             embeds: embedPages,
@@ -44,5 +38,9 @@ module.exports = {
             author: message.author,
             time: 15000,
         });
+        
+        if (args[1] === client.commands.name) {
+            return message.channel.send(`${args[1]}`)
+        }
     },
 };
