@@ -19,9 +19,9 @@ module.exports = {
             let embed = new MessageEmbed();
             embed.addField(`**${name}**`, `:smth: ${description || "none"}`);
 
-            embedPages.push(embed);
+            //embedPages.push(embed);
         }
-      
+      embedPages.push(embed);
         // const chunkedArray = chunk(embedPages, 10);
       
         pagination({
