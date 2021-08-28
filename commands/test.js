@@ -9,7 +9,7 @@ module.exports = {
 	  let embed = new MessageEmbed()
 	  
 	  for (const [ name, { description } ] of client.commands) {
-	  embed.addFields(`**${name}**`, `<:smth:881147807879286804>${description}`)
+	  embed.addFields(`**${name}**`, `<:smth:881147807879286804>${description || "none"}`)
 	  }
 	  
 	  message.channel.send({ embeds: [embed] })
