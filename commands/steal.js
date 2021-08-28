@@ -3,6 +3,8 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "steal",
+  usage: "steal <user>",
+  description: "Be a meanie and steal from a unsuspecting user.",
   category: "Currency",
   cooldown: 1800,
   async execute(message, args, client, profileData, serverData) {
