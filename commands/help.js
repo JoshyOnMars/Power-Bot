@@ -22,7 +22,7 @@ module.exports = {
 	  	const chunkedArray = chunk(embed.fields, 10);
 	  
 	  	pagination({
-			embeds: embed,
+			embeds: chunkedArray,
 			channel: message.channel,
 			author: message.author,
 			time: 15000,
