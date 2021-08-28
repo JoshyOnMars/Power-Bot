@@ -60,7 +60,7 @@ module.exports = {
                     },
                 }
             );
-           if (randomItems === randomItems[3]) {
+           if (randomItems === items[3]) {
                await profileModel.findOneAndUpdate(
                 {
                     userID: message.author.id,
