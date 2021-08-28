@@ -6,7 +6,7 @@ const prefix = process.env.PREFIX
 module.exports = {
 	name: 'kick',
 	description: 'Kick a user.',
-        usage: `${prefix}kick [user] (reason)`,
+        usage: `kick [user] <reason>`,
         category: 'Moderation',
 	async execute(message, args, client, profileData) {
 
