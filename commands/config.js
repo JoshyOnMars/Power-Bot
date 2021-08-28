@@ -3,7 +3,8 @@ const serverModel = require("../models/serverSchema");
 
 module.exports = {
   name: "config",
-  usage: `.config logchannel/prefix <channel/prefix>`,
+  usage: `config [logchannel/prefix] <channel/prefix>`,
+  description: "Configure the bots settings to your own delight.",
   category: "Utility",
   async execute(message, args, client, serverData) {
     if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply(`You don't have the permission \`MANAGE_MESSAGES\` to run this command!`)
