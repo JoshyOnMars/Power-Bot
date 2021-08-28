@@ -3,6 +3,8 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "beg",
+  usage: "beg",
+  description: "Beg strangers for some money lol",
   category: "Currency",
   cooldown: 40,
   async execute(message, args, client, profileData, serverData) {
