@@ -6,7 +6,7 @@ module.exports = {
     usage: "search",
     description: "Be a weirdo and search for money...",
     category: "Currency",
-    cooldown: 45,
+    cooldown: 1,
     async execute(message, args, client, profileData, serverData) {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
 
