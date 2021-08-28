@@ -3,8 +3,8 @@ const profileModel = require("../models/profileSchema.js");
 
 module.exports = {
 	name: 'ban',
-	description: 'Ban a user.',
-        usage: `ban [user] (reason)`,
+	description: 'Ban a user who has been naughty.',
+        usage: `ban [user] <reason>`,
         category: 'Moderation',
 	async execute(message, args, client, profileData) {
 
