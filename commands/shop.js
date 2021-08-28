@@ -6,7 +6,7 @@ module.exports = {
   cooldown: 5,
   async execute(message, args, client) {
 
-    let shopEmbed = new Discord.MessageEmbed()
+    let shopEmbed = new MessageEmbed()
       .setColor("YELLOW")
       .setTitle("Here is the shop!");
     let shop = [
