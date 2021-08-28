@@ -27,8 +27,6 @@ module.exports = {
 			author: message.author,
 			time: 15000,
 		})
-	  
-		message.channel.send({ embeds: [embed] })
     
   },
 };
