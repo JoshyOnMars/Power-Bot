@@ -15,9 +15,9 @@ module.exports = {
     ];
     for (const item of shop) {
       let itemName = item[0],
-        itemDescription = item[1]
-        itemPrice = item[2];
-      shopEmbed.addFields({name: `${itemName}: \`\`${itemPrice}\`\``, value: `${itemDescription}`})
+      let itemDescription = item[1]
+      let itemPrice = item[2];
+      shopEmbed.addFields({name: `${itemName}: \`\`${itemPrice} coins\`\``, value: `${itemDescription}`})
     }
 
 
