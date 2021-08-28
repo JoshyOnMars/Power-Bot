@@ -29,7 +29,7 @@ module.exports = {
         // Store all client commands in this array.
         const itemName = [];
         for(const item of shopItems) {
-            itemName.push({ name: item[0], value: `item[1]` });
+            itemName.push({ name: `${item[0]} - ${item[2]} coins`, value: item[1] });
         }
         // Chunking the commands in smaller arrays. Leave second parameter blank to use default of 15, or choose your own size.
         // Note that Discord doesn't allow any embed to go over 25 fields, 2000 characters.
