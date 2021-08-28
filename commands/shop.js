@@ -14,7 +14,7 @@ module.exports = {
       ["🍰 Slice Of Cake", "Have a slice!", 10],
     ];
     for (const item of shop) {
-      let itemName = item[0],
+      let itemName = item[0]
       let itemDescription = item[1]
       let itemPrice = item[2];
       shopEmbed.addFields({name: `${itemName}: \`\`${itemPrice} coins\`\``, value: `${itemDescription}`})
