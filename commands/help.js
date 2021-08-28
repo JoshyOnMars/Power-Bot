@@ -35,7 +35,7 @@ module.exports = {
       
         if (args[1] === client.commands.name) {
         
-            message.channel.send(`${args[1]}`)
+            return message.channel.send(`${args[1]}`)
         }
         
         pagination({
