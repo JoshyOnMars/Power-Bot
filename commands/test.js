@@ -20,7 +20,7 @@ module.exports = {
 	  
 		for(const [name, {description}] of client.commands){
   			descriptionArray.push(`**${name}**`);
-  			descriptionArray.push(`<:smth:881147807879286804>${description || "none"}`);
+  			descriptionArray.push(`<:smth:881147807879286804> ${description || "none"}`);
 		}
 	  
 		embed.setDescription(descriptionArray.join('\n'));
