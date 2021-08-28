@@ -12,12 +12,12 @@ module.exports = {
     const number = args[1]
     const input = args[0]
     
-    if (!input) { return message.reply(`Please specify what you want to do, \`.bank withdraw/deposit <amount>\``)}
+    if (!input) { return message.reply(`Please specify what you want to do, \`${client.prefix}bank withdraw/deposit <amount>\``)}
                       
     if (input === "deposit") {
-        if (!number) { return message.reply(`Please specify the amount you want to deposit! (Min 1,000 coins)`)}
-        if (number > 1000) { return message.reply("Your amount is more than the min amount of 1,000 coins.")}
-        if (profileData.bank > 999) { return message.reply(`You have the max amount of \`1,000\` coins in your bank!`)}
+        if (!number) { return message.reply(`Please specify the amount you want to deposit! (Min ${profileData.bankSize} coins)`)}
+        if (number > profileData.bankSize) { return message.reply(`Your amount is more than the min amount of ${profileData.bankSize} coins.`)}
+        if (profileData.bank > profileData.bankSize) { return message.reply(`You have the max amount of \`${profileData.bankSize}\` coins in your bank!`)}
         if (profileData.coins < 1) { return message.reply(`You have no coins to deposit into your bank!`)}
         const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: -number,bank: number,},});
         let embed = new MessageEmbed()
@@ -26,8 +26,8 @@ module.exports = {
         .setTimestamp()
         return message.reply({ embeds: [embed] })
     } else if (input === "withdraw") {
-        if (!number) { return message.reply(`Please specify the amount you want to withdraw! (Min 1,000 coins)`)}
-        if (number > 1000) { return message.reply("Your amount is more than the min amount of 1,000 coins.")}
+        if (!number) { return message.reply(`Please specify the amount you want to withdraw! (Min ${profileData.bankSize} coins)`)}
+        if (number > profileData.bankSize) { return message.reply(`Your amount is more than the min amount of ${profileData.bankSize} coins.`)}
         if (profileData.bank < 1) { return message.reply(`You have no coins to withdraw from your bank!`)}
         const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: number,bank: -number,},});
         let embed2 = new MessageEmbed()
