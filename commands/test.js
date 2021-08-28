@@ -20,7 +20,7 @@ module.exports = {
 	  }
 	  
 	  const chunkedArray = chunk(embed.fields, 10);
-	  message.channel.send(chunkedArray)
+	  message.channel.send({ embeds: [chunkedArray] })
     
   },
 };
