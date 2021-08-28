@@ -15,7 +15,7 @@ module.exports = {
     .setColor("RANDOM")
     .setAuthor(`${user.username}'s Balance`)
     .addField(`💰Wallet`, `${bal.coins.toLocaleString()}`)
-    .addField(`🏦Bank`, `${bal.bank.toLocaleString()}/1,000`)
+    .addField(`🏦Bank`, `${bal.bank.toLocaleString()}/${bal.bankSize.toLocaleString()}`)
     .setTimestamp()
     message.reply({ embeds: [embed] });
   },
