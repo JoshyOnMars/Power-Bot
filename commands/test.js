@@ -16,10 +16,11 @@ module.exports = {
 	  }
 	  
 	  for (const [ name, { description } ] of client.commands) {
-          const chunkedArray = chunk(embed.addField(`**${name}**`, `<:smth:881147807879286804>${description || "none"}`), 10);
+	  embed.addField(`**${name}**`, `<:smth:881147807879286804>${description || "none"}`)
 	  }
 	  
-	  message.channel.send({ embeds: [embed] })
+	  const chunkedArray = chunk(embed.fields, 10);
+	  message.channel.send(chunkedArray)
     
   },
 };
