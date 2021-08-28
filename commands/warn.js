@@ -5,19 +5,19 @@ const prefix = process.env.PREFIX
 
 module.exports = {
 	name: 'warn',
-	description: 'Warn a user!',
-	usage: `${prefix}warn [user] (reason)`,
+	description: 'Warn a user for a good reason only.',
+	usage: `warn [user] <reason>`,
         category: 'Moderation',
-	async execute(message, args, client, profileData) {
+	async execute(message, args, client, profileData, serverData) {
     
         message.delete()
 
         if (!message.member.permissions.has("MANAGE_MESSAGES")) {return message.channel.send("You don't have the required permission (MANAGE_MESSAGES) to run this command!")}
         
-    let logChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
+    let logChannel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
     if (!logChannel)
       return message.channel.send(
-        "There is no channel called 'log', please create one and make sure the bot can send messages in it!"
+        `There is no channel for me to log moderation data do so by doing \`${client.prefix}config logchannel <channel>\`, please create one and make sure the bot can send messages in it!`
       );
 
     let rUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
