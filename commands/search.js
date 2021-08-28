@@ -26,7 +26,10 @@ module.exports = {
         ];
         
         const items = [
-                       "And **1** banknote!"
+                        "And **1** banknote!",
+                        "_ _",
+                        "_ _",
+                        "_ _"
                       ]
 
         const chosenLocations = locations.sort(() => Math.random() - Math.random()).slice(0, 3);
@@ -63,7 +66,7 @@ module.exports = {
                 },
                 {
                     $inc: {
-                    bankSize: randomNum(500) 
+                    bankSize: randomNum(1000) 
                     },
                 }
                 );
