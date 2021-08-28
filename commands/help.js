@@ -2,7 +2,7 @@ const { MessageActionRow, MessageButton, MessageEmbed } = require("discord.js")
 const profileModel = require("../models/profileSchema");
 
 module.exports = {
-  name: "test",
+  name: "help",
   async execute(message, args, client, profileData) {
 	  
  		let embed = new MessageEmbed()
