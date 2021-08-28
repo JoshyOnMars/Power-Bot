@@ -28,7 +28,7 @@ module.exports = {
             embeds: chunkedArray,
             channel: message.channel,
             author: message.author,
-            time: 15000,
+            time: 30000,
         });
     },
 };
