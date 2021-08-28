@@ -3,7 +3,6 @@ module.exports = [
 "Jeff Bezos", 
 "Bill Gates", 
 "Joe Biden", 
-"Zac Aubert",
 "Mr Beast",
 "KSI",
 "Logan Paul",
