@@ -44,7 +44,7 @@ module.exports = {
           },
           {
             name: `Usage:`,
-            value: `\`${client.prefix}${command.usage || "None"}\``,
+            value: `\`${client.prefix + command.usage || "None"}\``,
           },
           {
             name: `Category:`,
