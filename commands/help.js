@@ -32,6 +32,28 @@ module.exports = {
             embedPages.push(embed);
         });
         
+        if (client.commands.has(args[0])) {
+        let command = client.commands.get(args[0])
+        let embed = new MessageEmbed()
+        .setAuthor(`Command Information: ${command.name}`, client.user.displayAvatarURL())
+        .setColor("YELLOW")
+        .addFields(
+          {
+            name: `Description:`,
+            value: `\`${command.description || "None"}\``,
+          },
+          {
+            name: `Usage:`,
+            value: `\`${command.usage || "None"}\``,
+          },
+          {
+            name: `Category:`,
+            value: `\`${command.category || "None"}\``,
+          }
+        )
+        return message.channel.send({ embeds: [embed]});
+      }
+        
         pagination({
             embeds: embedPages,
             channel: message.channel,
@@ -39,8 +61,5 @@ module.exports = {
             time: 15000,
         });
         
-        if (args[1] === client.commands.name) {
-            return message.channel.send(`${args[1]}`)
-        }
     },
 };
