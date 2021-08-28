@@ -3,6 +3,8 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
     name: "search",
+    usage: "search",
+    description: "Be a weirdo and search for money...",
     category: "Currency",
     cooldown: 45,
     async execute(message, args, client, profileData, serverData) {
