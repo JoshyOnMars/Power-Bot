@@ -1,4 +1,5 @@
 const { MessageActionRow, MessageButton, MessageEmbed } = require("discord.js")
+const { pagination } = require("reconlx")
 const profileModel = require("../models/profileSchema");
 
 module.exports = {
@@ -7,23 +8,25 @@ module.exports = {
 	  
  		let embed = new MessageEmbed()
 	  
-	  	//function chunk(array, chunkSize){
- 	  	//const chunked = [];
-          	//for(let i = 0; i < array.length; i += chunkSize)
-    	  	//chunked.push(array.slice(i, i + chunkSize));
- 	  	//return chunked;
-	  	//}
-	  
-	  	//const chunkedArray = chunk(embed.fields, 10);
-	  
-	  	const descriptionArray = [];
+	  	function chunk(array, chunkSize){
+ 	  	const chunked = [];
+          	for(let i = 0; i < array.length; i += chunkSize)
+    	  	chunked.push(array.slice(i, i + chunkSize));
+ 	  	return chunked;
+	  	}
 	  
 		for(const [name, {description}] of client.commands){
-  			descriptionArray.push(`**${name}**`);
-  			descriptionArray.push(`<:smth:881147807879286804> ${description || "none"}`);
+			embed.addField(`**${name}**`, `<:smth:881147807879286804> ${description || "none"}`)
 		}
 	  
-		embed.setDescription(descriptionArray.join('\n'));
+	  	const chunkedArray = chunk(embed.fields, 10);
+	  
+	  	pagination({
+			embeds: embed,
+			channel: message.channel,
+			author: message.author,
+			time: 15000,
+		})
 	  
 		message.channel.send({ embeds: [embed] })
     
