@@ -7,10 +7,9 @@ module.exports = {
   async execute(message, args, client, profileData) {
 	  
 	  let embed = new MessageEmbed()
-	  .setDescription(`**help**\n<:smth:881147807879286804>Get some help!`)
 	  
-	  for (const i of client.commands) {
-	  console.log(`${i}`)
+	  for (const { name, description } of client.commands) {
+	  embed.setDescription(`**${name}**\n<:smth:881147807879286804>${description}`)
 	  }
 	  
 	  message.channel.send({ embeds: [embed] })
