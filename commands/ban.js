@@ -1,12 +1,10 @@
 const { MessageEmbed } = require("discord.js")
 const profileModel = require("../models/profileSchema.js");
-require("dotenv").config();
-const prefix = process.env.PREFIX
 
 module.exports = {
 	name: 'ban',
 	description: 'Ban a user.',
-        usage: `${prefix}ban [user] (reason)`,
+        usage: `ban [user] (reason)`,
         category: 'Moderation',
 	async execute(message, args, client, profileData) {
 
