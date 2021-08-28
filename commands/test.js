@@ -9,6 +9,10 @@ module.exports = {
 	  let embed = new MessageEmbed()
 	  .setDescription(`**help**\n<:smth:881147807879286804>Get some help!`)
 	  
+	  for (const i of client.commands) {
+	  console.log(`${i}`)
+	  }
+	  
 	  message.channel.send({ embeds: [embed] })
     
   },
