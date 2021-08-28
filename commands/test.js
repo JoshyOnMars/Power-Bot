@@ -8,7 +8,7 @@ module.exports = {
 	  
 	  let embed = new MessageEmbed()
 	  
-	  for (const { name, description } of client.commands) {
+	  for (const [ name, description ] of client.commands) {
 	  embed.setDescription(`**${name}**\n<:smth:881147807879286804>${description}`)
 	  }
 	  
