@@ -3,6 +3,8 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "bal",
+  usage: "bal",
+  description: "Check you or someone elses wallet and bank balance!",
   category: "Currency",
   async execute(message, args, client, profileData, serverData) {
     if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
