@@ -24,8 +24,17 @@ module.exports = {
             "ring tent",
             "nosecone tent"
         ];
+        
+        const items = ["_ _",
+                       "_ _",
+                       "And **1** banknote!",
+                       "_ _",
+                       "_ _",
+                       "_ _"
+                      ]
 
         const chosenLocations = locations.sort(() => Math.random() - Math.random()).slice(0, 3);
+        const randomItems = items.sort(() => Math.random() - Math.random()).slice(0, 1);
 
         const filter = ({ author, content }) => message.author == author && chosenLocations.some((location) => location.toLowerCase() == content.toLowerCase());
 
@@ -39,7 +48,7 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            message.reply(`${message.author}, You found ${earnings.toLocaleString()} coins!`);
+            message.reply(`${message.author}, You found ${earnings.toLocaleString()} coins! ${randomItems}`);
 
             await profileModel.findOneAndUpdate(
                 {
@@ -51,6 +60,16 @@ module.exports = {
                     },
                 }
             );
+           if (randomItems === randomItems[3]) {
+               await profileModel.findOneAndUpdate(
+                {
+                    userID: message.author.id,
+                },
+                {
+                    bankSize: randomNum(500) 
+                }
+                );
+                }
         });
 
         collector.on('end', (collected, reason) => {
