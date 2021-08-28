@@ -3,7 +3,8 @@ const serverModel = require("../models/serverSchema");
 
 module.exports = {
   name: "module",
-  usage: `.module enable/disable badwords/economy`,
+  usage: `module [enable/disable] <badwords/economy>`,
+  description: "Enable/disable modules for the server.",
   category: "Utility",
   async execute(message, args, client, serverData) {
     if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply(`You don't have the permission \`MANAGE_MESSAGES\` to run this command!`)
