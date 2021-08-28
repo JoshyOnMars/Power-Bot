@@ -2,8 +2,9 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'ping',
+	usage: "ping",
 	description: 'Tells you the ping of the bot.',
-  category: 'Info',
+  	category: 'Info',
 	async execute(message, args, client) {
 
         const Ping = `${Math.round(message.client.ws.ping)}ms`
