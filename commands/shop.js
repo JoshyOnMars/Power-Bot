@@ -4,7 +4,7 @@ module.exports = {
   name: "shop",
   category: "Currency",
   cooldown: 5,
-  run: async (bot, message, args) => {
+  async execute(message, args, client) {
 
     let shopEmbed = new Discord.MessageEmbed()
       .setColor("YELLOW")
@@ -22,5 +22,5 @@ module.exports = {
 
 
         message.channel.send({ embeds: [shopEmbed] })
-  }
+  },
 };
