@@ -4,16 +4,16 @@ const prefix = process.env.PREFIX
 
 module.exports = {
 	name: 'report',
-	description: 'Report a user!',
-	usage: `${prefix}report [user] (reason)`,
+	description: 'Report a user in the server.',
+	usage: `report [user] <reason>`,
         category: 'Moderation',
-	async execute(message, args, client) {
+	async execute(message, args, client, serverData) {
     
         message.delete()
-    let reportChannel = message.guild.channels.cache.find(channel => channel.name === "logs");
+    let reportChannel = message.guild.channels.cache.find(channel => channel.id === serverData.logChannel);
     if (!reportChannel)
       return message.channel.send(
-        "There is no channel called 'log', please create one and make sure the bot can send messages in it!"
+        `You haven't chose a log channel for me to log moderation data do so by doing \`${client.prefix}config logchannel <channel>\`, and make sure the bot can send messages in it!`
       );
 
     let rUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
