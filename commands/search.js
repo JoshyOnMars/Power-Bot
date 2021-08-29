@@ -29,7 +29,9 @@ module.exports = {
                         "And **1** banknote!",
                         "_ _",
                         "_ _",
-                        "_ _"
+                        "_ _",
+                        "_ _",
+                        "_ _",
                       ]
 
         const chosenLocations = locations.sort(() => Math.random() - Math.random()).slice(0, 3);
@@ -47,7 +49,13 @@ module.exports = {
 
 
         collector.on('collect', async (m) => {
-            message.reply(`${message.author}, You found ${earnings.toLocaleString()} coins! ${randomItems}`);
+            let replyEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setDescription(`You found ${earnings.toLocaleString()} coins! ${randomItems}`)
+            .setFooter(`Nice 😏`)
+            .setTimestamp()
+            
+            message.reply({ embeds: [replyEmbed] });
 
             await profileModel.findOneAndUpdate(
                 {
@@ -79,7 +87,12 @@ module.exports = {
             }
         });
 
+        let searchEmbed = new MessagEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``)
+        .setFooter(`You've got 25 seconds to give an answer!`)
+        .setTimestamp()
 
-        message.reply(`<@${message.author.id}> Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``);
+        message.reply({ embeds: [searchEmbed] });
     }
 }
