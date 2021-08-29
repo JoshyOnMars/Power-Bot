@@ -64,7 +64,7 @@ let embed = new MessageEmbed()
 .addField(`Members:`, `${guild.memberCount}`)
 .setFooter(`I am now in ${client.guilds.cache.size} servers!`)
 .setTimestamp()
-channel.send({ embeds: [embed] })
+//channel.send({ embeds: [embed] })
 })
 
 client.on('guildDelete', async guild => {
@@ -77,7 +77,7 @@ let embed = new MessageEmbed()
 .addField(`Members:`, `${guild.memberCount}`)
 .setFooter(`I am now in ${client.guilds.cache.size} servers..`)
 .setTimestamp()
-channel.send({ embeds: [embed] })
+//channel.send({ embeds: [embed] })
 })
 
 client.on('guildMemberAdd', async member => {
