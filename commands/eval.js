@@ -15,7 +15,7 @@ module.exports = {
 
     {
       if (message.author.id !== "691634056278048778")
-        return message.reply":x: You are not my owner!");
+        return message.reply(":x: You are not my owner!");
       try {
         const code = args.join(" ");
         let evaled = eval(code);
