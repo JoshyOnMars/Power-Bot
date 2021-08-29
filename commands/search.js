@@ -87,7 +87,7 @@ module.exports = {
             }
         });
 
-        let searchEmbed = new MessagEmbed()
+        let searchEmbed = new MessageEmbed()
         .setColor("RANDOM")
         .setDescription(`Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``)
         .setFooter(`You've got 25 seconds to give an answer!`)
