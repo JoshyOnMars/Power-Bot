@@ -4,7 +4,7 @@ module.exports = {
 	  name: 'rule',
           description: "Rules!",
 	  async execute(message, args, client) {
-	  if (message.guild.id !== "793016551682867250") return;
+	  if (message.guild.id !== "793016551682867250") return message.reply(`This command isn't available in this server!`);
 
         const input = args[0];
         
