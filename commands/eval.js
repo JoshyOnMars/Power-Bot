@@ -3,6 +3,7 @@ let moment = require("moment")
 
 module.exports = {
   name: "eval",
+  description: "DEVELOPER ONLY",
   async execute(message, args, client) {
     function clean(text) {
       if (typeof text === "string")
@@ -11,8 +12,6 @@ module.exports = {
           .replace(/@/g, "@" + String.fromCharCode(8203));
       else return text;
     }
-
-    const args = message.content.split(" ").slice(1);
 
     {
       if (message.author.id !== "691634056278048778")
