@@ -53,8 +53,7 @@ module.exports = {
             .setColor("RANDOM")
             .setDescription(`You found ${earnings.toLocaleString()} coins! ${randomItems}`)
             .setFooter(`Nice 😏`)
-            .setTimestamp()
-            
+          
             message.reply({ embeds: [replyEmbed] });
 
             await profileModel.findOneAndUpdate(
@@ -89,9 +88,9 @@ module.exports = {
 
         let searchEmbed = new MessageEmbed()
         .setColor("RANDOM")
-        .setDescription(`Which location would you like to search?\n Type the location in this channel\n \`${chosenLocations.join('` `')}\``)
+        .setTitle(`Which location would you like to search?`)
+        .setDescription(`Type the location in this channel\n \`${chosenLocations.join('` `')}\``)
         .setFooter(`You've got 25 seconds to give an answer!`)
-        .setTimestamp()
 
         message.reply({ embeds: [searchEmbed] });
     }
