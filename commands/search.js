@@ -51,7 +51,7 @@ module.exports = {
         collector.on('collect', async (m) => {
             let replyEmbed = new MessageEmbed()
             .setColor("RANDOM")
-            .setDescription(`You found ${earnings.toLocaleString()} coins! ${randomItems}`)
+            .setDescription(`You found **${earnings.toLocaleString()} coins**! ${randomItems}`)
             .setFooter(`Nice 😏`)
           
             message.reply({ embeds: [replyEmbed] });
