@@ -36,7 +36,7 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	let channel = client.channels.cache.get("881606083481845803")
-	//channel.send(`<:online:881607423746531358> **${client.user.username}** is online!`)
+	channel.send(`<:online:881607423746531358> **${client.user.username}** is online!`)
 	client.user.setActivity(`groovy groove on... | .help`, { type: 'LISTENING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
@@ -64,7 +64,7 @@ let embed = new MessageEmbed()
 .addField(`Members:`, `${guild.memberCount}`)
 .setFooter(`I am now in ${client.guilds.cache.size} servers!`)
 .setTimestamp()
-//channel.send({ embeds: [embed] })
+channel.send({ embeds: [embed] })
 })
 
 client.on('guildDelete', async guild => {
@@ -77,7 +77,7 @@ let embed = new MessageEmbed()
 .addField(`Members:`, `${guild.memberCount}`)
 .setFooter(`I am now in ${client.guilds.cache.size} servers..`)
 .setTimestamp()
-//channel.send({ embeds: [embed] })
+channel.send({ embeds: [embed] })
 })
 
 client.on('guildMemberAdd', async member => {
