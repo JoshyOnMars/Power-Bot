@@ -11,18 +11,31 @@ module.exports = {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
 
         const locations = [
-            "highbay bar",
-            "high bay",
-            "mid bay",
-            "low bay",
-            "raptor truck",
-            "tesla",
-            "floor",
-            "pockets",
-            "scrapyard",
-            "dome tent",
-            "ring tent",
-            "nosecone tent"
+                "car",
+                "sock",
+                "wallet",
+                "box",
+                "pocket",
+                "bus",
+                "park",
+                "train",
+                "lounge",
+                "keyboard",
+                "bathroom",
+                "bed",
+                "sofa",
+                "backpack",
+                "laptop",
+                "sewer",
+                "pantry",
+                "shoe",
+                "tree",
+                "air",
+                "street",
+                "attic",
+                "grass",
+                "bus",
+                "space"
         ];
         
         const items = [
@@ -51,7 +64,7 @@ module.exports = {
         collector.on('collect', async (m) => {
             let replyEmbed = new MessageEmbed()
             .setColor("RANDOM")
-            .setDescription(`You found **${earnings.toLocaleString()} coins**! ${randomItems}`)
+            .setDescription(`You searched \`${m.content}\` and found **${earnings.toLocaleString()} coins**! ${randomItems}`)
             .setFooter(`Nice 😏`)
           
             message.reply({ embeds: [replyEmbed] });
