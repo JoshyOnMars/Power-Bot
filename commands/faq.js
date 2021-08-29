@@ -5,7 +5,7 @@ module.exports = {
           description: "Find your answers you're looking for with this command!",
 	  async execute(message, args, client) {
 		  
-	if (!message.guild.id === "793016551682867250") return message.channel.send(`This command isn't available in this server!`);
+	if (message.guild.id !== "793016551682867250") return message.channel.send(`This command isn't available in this server!`);
 
         const inputThing = args[0];
         
