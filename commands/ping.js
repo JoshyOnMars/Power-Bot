@@ -19,7 +19,7 @@ module.exports = {
         const Embed = new MessageEmbed()
         .setColor("#2f3136")
         .setTitle("🏓 Pong!")
-        .setDescription(`Ping is ${Ping}\nUptime is ${uptime}`)
+        .setDescription(`Ping is \`${Ping}\`\nUptime is \`${uptime}\``)
 
 		await message.reply({ embeds: [Embed] });
 	},
