@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const serverSchema = new mongoose.Schema({
-  serverID: { type: String, require: true },
-  logChannel: { type: String, unique: true },
+  serverID: { type: String },
+  logChannel: { type: String, default: "none" },
   badWords: { type: Boolean, default: false },
   economy: { type: Boolean, default: false },
   prefix: { type: String, default: '.'},
