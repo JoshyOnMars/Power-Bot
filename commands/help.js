@@ -22,7 +22,7 @@ module.exports = {
         // Store all client commands in this array.
         const clientCommands = [];
         for(const [name, {description}] of client.commands) {
-            clientCommands.push({ name: name, value: `<:__:881147807879286804> ${description || "none"}` });
+            clientCommands.push({ name: name, value: `<:listbottom:881607420399452160> ${description || "none"}` });
         }
         // Chunking the commands in smaller arrays. Leave second parameter blank to use default of 15, or choose your own size.
         // Note that Discord doesn't allow any embed to go over 25 fields, 2000 characters.
