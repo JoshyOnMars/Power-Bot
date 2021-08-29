@@ -36,7 +36,7 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	let channel = client.channels.cache.get("881606083481845803")
-	channel.send(`🟢 ${client.user.username} is online!`)
+	channel.send(`<:online:881607423746531358> **${client.user.username}** is online!`)
 	client.user.setActivity(`groovy groove on... | .help`, { type: 'LISTENING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
