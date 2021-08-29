@@ -17,7 +17,7 @@ module.exports = {
 
     let uptime = `${days}D:${hours}H:${minutes}M:${seconds}S`;
         const Embed = new MessageEmbed()
-        .setColor("#2f3136")
+        .setColor("YELLOW")
         .setTitle("🏓 Pong!")
         .setDescription(`Ping is \`${Ping}\`\nUptime is \`${uptime}\``)
 
