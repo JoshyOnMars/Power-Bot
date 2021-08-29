@@ -54,10 +54,28 @@ let server = await serverModel.create({
     prefix: '.',
   });
   server.save();
+let channel = client.channels.cache.get("881334625341935626")
+let embed = new MessageEmbed()
+.setColor("GREEN")
+.setAuthor(`Joined A New Server!`, guild.iconURL())
+.addField(`Name:`,`${guild.name}`)
+.addField(`Owner:`, `${guild.owner}`)
+.addField(`Members:`, `${guild.memberCount}`)
+.setFooter(`I am now in ${client.guilds.cache.size} servers!`)
+.setTimestamp()
 })
 
 client.on('guildDelete', async guild => {
 await serverModel.deleteOne({serverID: guild.id,});
+let channel = client.channels.cache.get("881334625341935626")
+let embed = new MessageEmbed()
+.setColor("RED")
+.setAuthor(`Left A Server..`, guild.iconURL())
+.addField(`Name:`,`${guild.name}`)
+.addField(`Owner:`, `${guild.owner}`)
+.addField(`Members:`, `${guild.memberCount}`)
+.setFooter(`I am now in ${client.guilds.cache.size} servers..`)
+.setTimestamp()
 })
 
 client.on('guildMemberAdd', async member => {
