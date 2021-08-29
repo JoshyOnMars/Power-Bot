@@ -15,6 +15,7 @@ module.exports = {
     }
     const randomNumber = randomNum(1500)
     let mentionedUser = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+    if (!mentionedUser) return message.reply(`Bro- who do you want to steal from...`)
     
     const bal = await profileModel.findOne({ userID: `${mentionedUser.id}` });
     console.log(bal.coins);
