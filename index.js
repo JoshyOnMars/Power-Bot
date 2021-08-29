@@ -35,7 +35,7 @@ mongoose
 
 client.on('ready', () => {
 	console.log('Ready!');
-	client.user.setActivity(`groovy groove on...`, { type: 'LISTENING' });
+	client.user.setActivity(`groovy groove on... | .help`, { type: 'LISTENING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
         .then(json => {
