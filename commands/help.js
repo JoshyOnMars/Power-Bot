@@ -22,12 +22,12 @@ module.exports = {
         // Store all client commands in this array.
         const clientCommands = [];
         for(const [name, {description}] of client.commands) {
-            clientCommands.push({ name: `[${name}](https://discord-power-bot.glitch.me/commands.html)`, value: `<:reply:881608199143325767>${description || "none"}` });
+            clientCommands.push({ name: name`, value: `<:reply:881608199143325767>${description || "none"}` });
         }
         // Chunking the commands in smaller arrays. Leave second parameter blank to use default of 15, or choose your own size.
         // Note that Discord doesn't allow any embed to go over 25 fields, 2000 characters.
         chunk(clientCommands, 6).forEach((chunks) => {
-            const embed = new MessageEmbed().setColor("YELLOW").setAuthor(`${client.user.username}'s Commands`, client.user.displayAvatarURL()).setFooter(`${client.prefix}help <cmd> for more info`);
+            const embed = new MessageEmbed().setColor("YELLOW").setAuthor(`${client.user.username}'s Commands`, client.user.displayAvatarURL(), 'https://discord-power-bot.glitch.me/commands.html').setFooter(`${client.prefix}help <cmd> for more info`);
             embed.addFields(chunks);
             embedPages.push(embed);
         });
