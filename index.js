@@ -166,7 +166,9 @@ client.on('messageCreate', async message => {
 
 	try {
 		client.commands.get(commandName).execute(message, args, client, profileData, serverData)
-		console.log(`Command: ${commandName} has been used.`)
+		let channel = client.channels.cache.get("881606083481845803")
+		
+		channel.send(`Command: ${commandName} has been used.`)
 	} catch (error) {
 		console.error(error);
 		message.reply('There was an error trying to execute that command!');
