@@ -36,7 +36,7 @@ mongoose
 client.on('ready', () => {
 	console.log('Ready!');
 	let channel = client.channels.cache.get("881606083481845803")
-	channel.send(`<:online:881607423746531358> **${client.user.username}** is online!`)
+	console.log(`<:online:881607423746531358> **${client.user.username}** is online!`)
 	client.user.setActivity(`groovy groove on... | .help`, { type: 'LISTENING' });
         fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
         .then(res => res.json()) 
@@ -166,6 +166,7 @@ client.on('messageCreate', async message => {
 
 	try {
 		client.commands.get(commandName).execute(message, args, client, profileData, serverData)
+		console.log(`Command: ${commandName} has been used.`)
 	} catch (error) {
 		console.error(error);
 		message.reply('There was an error trying to execute that command!');
