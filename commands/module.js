@@ -32,6 +32,13 @@ module.exports = {
         await serverModel.findOneAndUpdate({serverID: message.guild.id,},{economy: false})
         message.reply(`Module \`economy\` has been **disabled**`)
       }
+      let embed = new MessageEmbed()
+      .setColor("RED")
+      .setAuthor(`Modules`)
+      .addField(`💰Economy`, `The module \`\`economy`\` is a fun currency system for when people in your server are bored. lol`, true)
+      .addField(`🤬Badwords`, `A module to filter badwords to keep things PG-13`, true)
+      .setTimestamp()
+      return message.channe.send({ embeds: [embed] });
     }
   },
 };
