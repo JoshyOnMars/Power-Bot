@@ -173,3 +173,4 @@ client.on('messageCreate', async message => {
 	});
 
 client.login(process.env.DISCORD_TOKEN);
+client.login("ODc0MjQ0MDg4MjQ4MDM3NDE2.YREJQQ.8xyfRlZIeO-RgYAc-OuxJJaz26A")
