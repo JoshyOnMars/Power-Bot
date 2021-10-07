@@ -34,6 +34,7 @@ mongoose
 });
 
 //functions
+module.exports = client;
 client.add = (id, coins) => {
     profileModel.findOne({ id }, async(err, data) => {
        if (err) throw err;
