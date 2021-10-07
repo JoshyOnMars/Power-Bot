@@ -40,7 +40,7 @@ client.add = (id, coins) => {
        if (data) {
           data.coins += coins;
        } else {
-         data = new schema({ id, coins })
+         data = new profileModel({ id, coins })
        }
        data.save()
     })
