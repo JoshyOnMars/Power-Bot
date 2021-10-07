@@ -36,7 +36,16 @@ mongoose
 //functions
 module.exports = client;
 client.add = (id, coins) => {
-    profileModel.findOneAndUpdate({userID: id},{$inc: {coins: coins}});
+    profileModel.findOne({userID: id}, async(err, data) => {
+       if (err) throw err;
+       if (data) {
+           data.coins += coins;
+          } else {
+              data = new profileModel({userID: id}, {coins: coins})
+            }
+          data.save()
+       }
+    );
 }
 
 client.on('ready', () => {
