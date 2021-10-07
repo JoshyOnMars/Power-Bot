@@ -42,7 +42,7 @@ client.add = (id, coins) => {
        if (data) {
            data.coins += coins;
           } else {
-              data = new profileModel({userID: id}, {coins: coins})
+              data = profileModel.create({userID: id}, {coins: coins})
             }
           data.save()
        }
@@ -55,7 +55,7 @@ client.remove = (id, coins) => {
        if (data) {
            data.coins -= coins;
           } else {
-              data = new profileModel({userID: id}, {coins: -coins})
+              data = new profileModel.create({userID: id}, {coins: -coins})
             }
           data.save()
        }
@@ -113,12 +113,9 @@ channel.send({ embeds: [embed] })
 client.on('guildMemberAdd', async member => {
 let profile = await profileModel.create({
     userID: member.id,
-    serverID: member.guild.id,
     coins: 1000,
     bank: 0,
     bankSize: 1000,
-    job: 'none',
-    modLogs: 0,
   });
   profile.save();
 })
@@ -153,12 +150,9 @@ client.on('messageCreate', async message => {
     	if (!profileData) {
       		let profile = await profileModel.create({
         	userID: message.author.id,
-        	serverID: message.guild.id,
         	coins: 1000,
         	bank: 0,
 		bankSize: 1000,
-		job: 'none',
-		modLogs: 0,
       	   });
       		profile.save();
 	}
