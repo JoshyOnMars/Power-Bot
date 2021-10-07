@@ -40,16 +40,7 @@ module.exports = {
          return message.reply({ embeds: [lose] })
     }
 
-    const response = await profileModel.findOneAndUpdate(
-      {
-        userID: message.author.id,
-      },
-      {
-        $inc: {
-          coins: num,
-        },
-      }
-    );
+    client.add(message.author.id, num)
     let embed = new MessageEmbed()
     .setColor("RANDOM")
     .setTitle(`${randomName}`)
