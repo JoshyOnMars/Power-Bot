@@ -35,6 +35,7 @@ mongoose
 
 //functions
 module.exports = client;
+//Add coins function
 client.add = (id, coins) => {
     profileModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
@@ -47,6 +48,20 @@ client.add = (id, coins) => {
        }
     );
 }
+//Remove coins function
+client.remove = (id, coins) => {
+    profileModel.findOne({userID: id}, async(err, data) => {
+       if (err) throw err;
+       if (data) {
+           data.coins -= coins;
+          } else {
+              data = new profileModel({userID: id}, {coins: -coins})
+            }
+          data.save()
+       }
+    );
+}
+
 
 client.on('ready', () => {
 	console.log('Ready!');
