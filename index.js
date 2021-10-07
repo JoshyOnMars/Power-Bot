@@ -33,6 +33,19 @@ mongoose
 	console.log(err);
 });
 
+//functions
+client.add(id, coins) => {
+    profileModel.findOne({ id }, async(err, data) => {
+       if (err) throw err;
+       if (data) {
+          data.coins += coins;
+       } else {
+         data = new schema({ id, coins })
+       }
+       data.save()
+    })
+}
+
 client.on('ready', () => {
 	console.log('Ready!');
 	let channel = client.channels.cache.get("881606083481845803")
