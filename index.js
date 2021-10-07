@@ -34,7 +34,7 @@ mongoose
 });
 
 //functions
-client.add(id, coins) => {
+client.add = (id, coins) => {
     profileModel.findOne({ id }, async(err, data) => {
        if (err) throw err;
        if (data) {
