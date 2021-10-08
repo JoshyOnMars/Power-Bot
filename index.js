@@ -55,7 +55,7 @@ client.remove = (id, coins) => {
        if (data) {
            data.coins -= coins;
           } else {
-              data = new profileModel.create({userID: id}, {coins: -coins})
+              data = profileModel.create({userID: id}, {coins: -coins})
             }
           data.save()
        }
