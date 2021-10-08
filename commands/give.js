@@ -20,8 +20,8 @@ module.exports = {
       return message.reply(`You don't have **${num.toLocaleString()} coins** to give to **${mentionedUser.username}**!`)
     }
     
-    client.add(message.author.id, num)
-    client.remove(mentionedUser.id, num)
+    client.add(message.author.id, parseInt(num))
+    client.remove(mentionedUser.id, parseInt(num))
 
     return message.reply(`You gave **${num.toLocaleString()} coins** to **${mentionedUser.username}**!`);
   },
