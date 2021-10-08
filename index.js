@@ -40,7 +40,7 @@ client.add = (id, coins) => {
     profileModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
        if (data) {
-           data.coins += coins;
+           data.coins + coins;
           } else {
               data = profileModel.create({userID: id}, {coins: coins})
             }
