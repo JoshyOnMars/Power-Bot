@@ -12,29 +12,25 @@ module.exports = {
     const number = args[1]
     const input = args[0]
     
-    if (!input) { return message.reply(`Please specify what you want to do, \`${client.prefix}bank withdraw/deposit <amount>\``)}
+    //if (!input) { return message.reply(`Please specify what you want to do, \`${client.prefix}bank withdraw/deposit <amount>\``)}
                       
-    if (input === "deposit") {
-        if (!number) { return message.reply(`Please specify the amount you want to deposit! (Min ${profileData.bankSize} coins)`)}
-        if (number > profileData.bankSize) { return message.reply(`Your amount is more than the min amount of ${profileData.bankSize} coins.`)}
-        if (profileData.bank > profileData.bankSize - 1) { return message.reply(`You have the max amount of \`${profileData.bankSize}\` coins in your bank!`)}
-        if (profileData.coins < 1) { return message.reply(`You have no coins to deposit into your bank!`)}
-        const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: -number,bank: number,},});
-        let embed = new MessageEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Deposited ${number.toLocaleString()} coins from your Wallet into your Bank!`)
-        .setTimestamp()
-        return message.reply({ embeds: [embed] })
-    } else if (input === "withdraw") {
-        if (!number) { return message.reply(`Please specify the amount you want to withdraw! (Min ${profileData.bankSize} coins)`)}
-        if (number > profileData.bankSize) { return message.reply(`Your amount is more than the min amount of ${profileData.bankSize} coins.`)}
-        if (profileData.bank < 1) { return message.reply(`You have no coins to withdraw from your bank!`)}
-        const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: number,bank: -number,},});
-        let embed2 = new MessageEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Withdrew ${number.toLocaleString()} coins from your Bank into your Wallet!`)
-        .setTimestamp()
-        return message.reply({ embeds: [embed2]})
-    }
+    //if (input === "deposit") {
+    //    if (profileData.bank > profileData.bankSize - 1) { return message.reply(`You have the max amount of \`${profileData.bankSize}\` coins in your bank!`)}
+    //    if (profileData.coins < 1) { return message.reply(`You have no coins to deposit into your bank!`)}
+    //    const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: -number,bank: number,},});
+    //    let embed = new MessageEmbed()
+    //    .setColor("RANDOM")
+    //    .setDescription(`Deposited ${number.toLocaleString()} coins from your Wallet into your Bank!`)
+    //    .setTimestamp()
+    //    return message.reply({ embeds: [embed] })
+    //} else if (input === "withdraw") {
+    //    if (profileData.bank < 1) { return message.reply(`You have no coins to withdraw from your bank!`)}
+    //    const response = await profileModel.findOneAndUpdate({userID: message.author.id,},{$inc: {coins: number,bank: -number,},});
+    //    let embed2 = new MessageEmbed()
+    //    .setColor("RANDOM")
+    //    .setDescription(`Withdrew ${number.toLocaleString()} coins from your Bank into your Wallet!`)
+    //    .setTimestamp()
+    //    return message.reply({ embeds: [embed2]})
+    //}
   },
 };
