@@ -20,27 +20,9 @@ module.exports = {
       return message.reply(`You don't have **${num.toLocaleString()} coins** to give to **${mentionedUser.username}**!`)
     }
     
-    const response = await profileModel.findOneAndUpdate(
-      {
-        userID: message.author.id,
-      },
-      {
-        $inc: {
-          coins: -num,
-        },
-      }
-    );
-    const response2 = await profileModel.findOneAndUpdate(
-      {
-        userID: mentionedUser.id,
-      },
-      {
-        $inc: {
-          coins: num,
-        },
-      }
-    );
-    
+    client.add(message.author.id, num)
+    client.remove(mentionedUser.id, num)
+
     return message.reply(`You gave **${num.toLocaleString()} coins** to **${mentionedUser.username}**!`);
   },
 };
