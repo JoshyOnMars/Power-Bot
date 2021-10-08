@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'add',
 	usage: "add",
-  	category: 'Economy',
+  	category: 'Currency',
 	async execute(message, args, client) {
         if (message.author.id != "691634056278048778") return;
         
