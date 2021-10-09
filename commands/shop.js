@@ -13,6 +13,10 @@ module.exports = {
       return `\n**${value.item}** - \`${value.price}\``;
     });
     
-    message.channel.send({ content: `${shopList}` })
+    let embed = new MessageEmbed()
+    .setTitle(`Item Shop!`)
+    .setDescription(`${shopList}`)
+    
+    message.channel.send({ embeds: [embed] })
   },
 };
