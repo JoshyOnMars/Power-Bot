@@ -35,6 +35,12 @@ mongoose
 
 //functions
 module.exports = client;
+//Bal function
+client.bal = (id) => new Promise(async ful => {
+	const data = await moneyModel.findOne({ userID: id });
+	if (!data) return ful(0);
+	ful(data.coins)
+})
 //Add coins function
 client.add = (id, wallet, bank) => {
     moneyModel.findOne({userID: id}, async(err, data) => {
