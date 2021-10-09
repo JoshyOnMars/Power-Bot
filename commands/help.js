@@ -1,6 +1,6 @@
 const { MessageActionRow, MessageButton, MessageEmbed } = require("discord.js")
 const { pagination } = require("reconlx")
-const profileModel = require("../models/profileSchema");
+//const profileModel = require("../models/profileSchema");
 
 module.exports = {
     name: "help",
