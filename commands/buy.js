@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const inventoryModel = require('../models/inventorySchema.js')
-const shopItems = require('../shopItems.js')
+const shopItems = require('../items.js')
 
 module.exports = {
 	name: 'buy',
