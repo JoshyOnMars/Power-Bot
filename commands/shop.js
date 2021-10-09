@@ -11,7 +11,7 @@ module.exports = {
     
     const shopList = shopItems.map((value, index) => {
       return `\n**${value.item}** — ${value.price}${value.description}`;
-    });
+    }).join("\n");
     
     let embed = new MessageEmbed()
     .setTitle(`Item Shop!`)
