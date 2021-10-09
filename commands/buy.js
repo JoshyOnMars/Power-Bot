@@ -42,6 +42,7 @@ module.exports = {
             }).save();
          }
          message.reply(`Brought \`${itemToBuy}\` for ${itemPrice} coins!`)
+	 client.remove(message.author.id, parseInt(itemPrice), 0)
         });
 	},
 };
