@@ -10,9 +10,6 @@ module.exports = {
 		
         if(!args[0]) return message.reply("Please state an item you want to sell!");
         const itemToSell = args[0].toLowerCase()
-
-	let inventory = inventoryModel.findOne({ userID: message.author.id })
-	console.log(inventory)
         
         const itemPrice = shopItems.find((val) => (val.item.toLowerCase()) === itemToSell).price;
         
