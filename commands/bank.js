@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js")
-const profileModel = require("../models/profileSchema");
+//const profileModel = require("../models/profileSchema");
 
 module.exports = {
   name: "bank",
   usage: "bank [withdraw/deposit] <amount>",
   description: "Withdraw or deposit from/to your bank - Deposited money is safe from being stolen!",
   category: "Currency",
-  async execute(message, args, client, profileData, serverData) {
+  async execute(message, args, client, moneyData, serverData) {
     if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
    
     const number = args[1]
