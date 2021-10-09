@@ -10,11 +10,6 @@ module.exports = {
     cooldown: 45,
     async execute(message, args, client, inventoryData, moneyData, serverData) {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
-        
-        console.log(inventoryData.inventory)
-        if (!inventoryData.inventory.has(flashlight)) {
-        return message.reply("You don't own a \`flashlight\` to be able to search!")
-        }
 
         const locations = [
                 "car",
