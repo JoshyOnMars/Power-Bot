@@ -36,26 +36,28 @@ mongoose
 //functions
 module.exports = client;
 //Add coins function
-client.add = (id, coins) => {
+client.add = (id, wallet, bank) => {
     moneyModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
        if (data) {
-           data.coins += coins;
+           data.coins += wallet;
+           data.bank += bank;
           } else {
-              data = moneyModel.create({userID: id}, {coins: coins})
+              data = moneyModel.create({userID: id}, {coins: wallet}, {bank: bank})
             }
           data.save()
        }
     );
 }
 //Remove coins function
-client.remove = (id, coins) => {
+client.remove = (id, wallet, bank) => {
     moneyModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
        if (data) {
-           data.coins -= coins;
+           data.coins -= wallet;
+           data.bank -= bank;
           } else {
-              data = moneyModel.create({userID: id}, {coins: -coins})
+              data = moneyModel.create({userID: id}, {coins: -wallet}, {bank: -bank})
             }
           data.save()
        }
@@ -114,6 +116,7 @@ client.on('guildMemberAdd', async member => {
 let money = await moneyModel.create({
     userID: member.id,
     coins: 1000,
+    bank: 0,
   });
   money.save();
 })
@@ -149,6 +152,7 @@ client.on('messageCreate', async message => {
       		let money = await moneyModel.create({
         	userID: message.author.id,
         	coins: 1000,
+                bank: 0,
       	   });
       		money.save();
 	}
