@@ -12,7 +12,7 @@ module.exports = {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
         
         console.log(inventoryData.inventory)
-        if (!inventoryData.inventory.includes("flashlight")) {
+        if (!'flashlight' in inventoryData.inventory) {
         return message.reply("You don't own a \`flashlight\` to be able to search!")
         }
 
