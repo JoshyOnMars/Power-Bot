@@ -14,7 +14,7 @@ module.exports = {
 	let inventory = inventoryModel.findOne({ userID: message.author.id })
 	console.log(inventory)
 	
-        const validItem = !!inventory.find((val) => val.item.toLowerCase() === itemToSell);
+        const validItem = !!inventory.inventory.find((val) => val.item.toLowerCase() === itemToSell);
         if(!validItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
         
         const itemPrice = shopItems.find((val) => (val.item.toLowerCase()) === itemToSell).price;
