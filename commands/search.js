@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const profileModel = require("../models/profileSchema");
+const moneyModel = require("../models/moneySchema");
 
 module.exports = {
     name: "search",
@@ -7,7 +7,7 @@ module.exports = {
     description: "Be a weirdo and search for money...",
     category: "Currency",
     cooldown: 45,
-    async execute(message, args, client, profileData, serverData) {
+    async execute(message, args, client, moneyData, serverData) {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
 
         const locations = [
@@ -68,7 +68,7 @@ module.exports = {
           
             message.reply({ embeds: [replyEmbed] });
 
-            await profileModel.findOneAndUpdate(
+            await moneyModel.findOneAndUpdate(
                 {
                     userID: message.author.id,
                 },
@@ -78,18 +78,6 @@ module.exports = {
                     },
                 }
             );
-           if (randomItems == items[0]) {
-               await profileModel.findOneAndUpdate(
-                {
-                    userID: message.author.id,
-                },
-                {
-                    $inc: {
-                    bankSize: randomNum(1000) 
-                    },
-                }
-                );
-                }
         });
 
         collector.on('end', (collected, reason) => {
