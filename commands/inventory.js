@@ -10,7 +10,7 @@ module.exports = {
            return word[0].toUpperCase() + word.slice(1).toLowerCase();
 	  }
     
-    inventoryModel.findOne({ guildID: message.guild.id, userID: message.author.id }, async (err, data) => {
+    inventoryModel.findOne({ userID: message.author.id }, async (err, data) => {
         if (!data) return message.reply("You have no owned items dummy!");
         const mappedData = Object.keys(data.inventory).map((key) => {
             return `**${capitalize(key)}** — ${data.inventory[key]}`;
