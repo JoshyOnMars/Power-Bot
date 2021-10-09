@@ -3,7 +3,7 @@ const { Client, Collection, Intents, MessageEmbed, GuildMember } = require('disc
 require("dotenv").config();
 const mongoose = require("mongoose");
 const fetch = require("node-fetch")
-const profileModel = require("./models/profileSchema");
+const moneyModel = require("./models/moneySchema");
 const serverModel = require("./models/serverSchema");
 const badwordsArray = require("./badwords.js")
 
@@ -37,12 +37,12 @@ mongoose
 module.exports = client;
 //Add coins function
 client.add = (id, coins) => {
-    profileModel.findOne({userID: id}, async(err, data) => {
+    moneyModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
        if (data) {
            data.coins += coins;
           } else {
-              data = profileModel.create({userID: id}, {coins: coins})
+              data = moneyModel.create({userID: id}, {coins: coins})
             }
           data.save()
        }
@@ -50,12 +50,12 @@ client.add = (id, coins) => {
 }
 //Remove coins function
 client.remove = (id, coins) => {
-    profileModel.findOne({userID: id}, async(err, data) => {
+    moneyModel.findOne({userID: id}, async(err, data) => {
        if (err) throw err;
        if (data) {
            data.coins -= coins;
           } else {
-              data = profileModel.create({userID: id}, {coins: -coins})
+              data = moneyModel.create({userID: id}, {coins: -coins})
             }
           data.save()
        }
@@ -111,13 +111,11 @@ channel.send({ embeds: [embed] })
 })
 
 client.on('guildMemberAdd', async member => {
-let profile = await profileModel.create({
+let money = await moneyModel.create({
     userID: member.id,
     coins: 1000,
-    bank: 0,
-    bankSize: 1000,
   });
-  profile.save();
+  money.save();
 })
 
 client.on('messageCreate', async message => {
@@ -144,17 +142,15 @@ client.on('messageCreate', async message => {
 	if (find && find.prefix) client.prefix = find.prefix;
 	if (!message.content.startsWith(client.prefix) || message.author.bot) return;
 	
-	let profileData;
+	let moneyData;
   	try {
-    		profileData = await profileModel.findOne({ userID: message.author.id });
-    	if (!profileData) {
-      		let profile = await profileModel.create({
+    		moneyData = await moneyModel.findOne({ userID: message.author.id });
+    	if (!moneyData) {
+      		let money = await moneyModel.create({
         	userID: message.author.id,
         	coins: 1000,
-        	bank: 0,
-		bankSize: 1000,
       	   });
-      		profile.save();
+      		money.save();
 	}
   	   } catch (err) {
     		console.log(err);
@@ -189,7 +185,7 @@ client.on('messageCreate', async message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		client.commands.get(commandName).execute(message, args, client, profileData, serverData)
+		client.commands.get(commandName).execute(message, args, client, moneyData, serverData)
 		let channel = client.channels.cache.get("881606083481845803")
 		
 		channel.send(`Command: ${commandName} has been used.`)
