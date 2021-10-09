@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const moneyModel = require("../models/moneySchema");
+const inventoryModel = require("../models/inventorySchema")
 
 module.exports = {
     name: "search",
@@ -9,6 +10,10 @@ module.exports = {
     cooldown: 45,
     async execute(message, args, client, moneyData, serverData) {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
+        
+        if (!inventoryModel.inventory.includes("Flashlight")) {
+        return message.reply("You don't own a \`flashlight\` to be able to search!")
+        }
 
         const locations = [
                 "car",
