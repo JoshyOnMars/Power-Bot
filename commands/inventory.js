@@ -20,5 +20,5 @@ module.exports = {
         .setDescription(`${mappedData}`)
         
         message.channel.send({ embeds: [embed]})
-      })
+      }),
 };
