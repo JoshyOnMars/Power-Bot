@@ -1,12 +1,12 @@
 module.exports = [
       {
             item: "Apple",
-            description: "\nOne of your Five a day!",
+            description: "One of your Five a day!",
             price: 5,
       },
       {
             item: "Cookie",
-            description: "\nNice and sweet!",
+            description: "Nice and sweet!",
             price: 10,
       }
 ]
