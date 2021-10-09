@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const fetch = require("node-fetch")
 const moneyModel = require("./models/moneySchema");
 const serverModel = require("./models/serverSchema");
+const inventoryModel = require("./models/inventorySchema")
 const badwordsArray = require("./badwords.js")
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
@@ -158,6 +159,7 @@ client.on('messageCreate', async message => {
   	   } catch (err) {
     		console.log(err);
   	   }
+	let inventoryData = await inventoryModel.findOne({ userID: message.author.id });
 
 	const args = message.content.slice(client.prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
@@ -188,7 +190,7 @@ client.on('messageCreate', async message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		client.commands.get(commandName).execute(message, args, client, moneyData, serverData)
+		client.commands.get(commandName).execute(message, args, client, inventoryData, moneyData, serverData)
 		let channel = client.channels.cache.get("881606083481845803")
 		
 		channel.send(`Command: ${commandName} has been used.`)
