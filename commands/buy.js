@@ -8,12 +8,8 @@ module.exports = {
   	category: 'Currency',
 	async execute(message, args, client) {
 		
-	function capitalize(word) {
-           return word[0].toUpperCase() + word.slice(1).toLowerCase();
-	}
-		
         if(!args[0]) return message.reply("Please state an item you want to buy!");
-        const itemToBuy = capitalize(args[0])
+        const itemToBuy = args[0].toLowerCase()
         
         const validItem = !!shopItems.find((val) => val.item.toLowerCase() === itemToBuy);
         if(!validItem) return message.reply(`There is no item called \`${itemToBuy}\`, Please try again... CORRECTLY!`);
