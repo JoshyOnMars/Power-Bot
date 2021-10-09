@@ -40,7 +40,7 @@ module.exports = {
          return message.reply({ embeds: [lose] })
     }
 
-    client.add(message.author.id, parseInt(num))
+    client.add(message.author.id, parseInt(num), 0)
     let embed = new MessageEmbed()
     .setColor("RANDOM")
     .setTitle(`${randomName}`)
