@@ -13,6 +13,6 @@ module.exports = {
       return `**${index + 1}** ${value.item} - ${value.price} coins`;
     });
     
-    message.channel.send({ content: shopList })
+    message.channel.send({ content: `${shopList}` })
   },
 };
