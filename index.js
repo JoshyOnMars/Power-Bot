@@ -75,14 +75,7 @@ client.on('ready', () => {
 	console.log('Ready!');
 	let channel = client.channels.cache.get("881606083481845803")
 	console.log(`<:online:881607423746531358> **${client.user.username}** is online!`)
-	client.user.setActivity(`groovy groove on... | .help`, { type: 'LISTENING' });
-        fetch('https://fdo.rocketlaunch.live/json/launches/next/25')
-        .then(res => res.json()) 
-        .then(json => {
-        for (const i of json.result) {
-        console.log(i.provider.name);
-        console.log(i.vehicle.name);
-        }})
+	client.user.setActivity(`.help`, { type: 'LISTENING' });
 });
 
 client.on('guildCreate', async guild => {
