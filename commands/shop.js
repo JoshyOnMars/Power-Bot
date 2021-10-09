@@ -10,7 +10,7 @@ module.exports = {
     if(shopItems.length === 0) return message.reply("No items are for sale!");
     
     const shopList = shopItems.map((value, index) => {
-      return `**${index + 1}** ${value.item} - ${value.price} coins\n`;
+      return `**${value.item}** - \`${value.price}\``;
     });
     
     message.channel.send({ content: `${shopList}` })
