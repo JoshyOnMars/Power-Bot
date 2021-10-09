@@ -21,8 +21,8 @@ module.exports = {
             	const hasItem = Object.keys(data.inventory).includes(itemToSell)
 	    	if (!hasItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
             	data.inventory[itemToSell]--
-		if (data.inventory[itemToSell] == 0) {
-		inventoryModel.dropIndex(itemToSell)
+		if (data.inventory[itemToSell] < 1) {
+		inventoryModel.dropIndex({ itemToSell })
 		}
 	  }
           console.log(data)
