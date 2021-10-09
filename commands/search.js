@@ -14,7 +14,7 @@ module.exports = {
         console.log(inventoryData.inventory)
         //if (!inventoryData.inventory.includes("Flashlight")) {
         //return message.reply("You don't own a \`flashlight\` to be able to search!")
-        /}
+        //}
 
         const locations = [
                 "car",
