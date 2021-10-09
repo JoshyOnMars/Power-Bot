@@ -20,7 +20,6 @@ module.exports = {
         if(userBalance < itemPrice) return message.reply(`This item costs \`${itemPrice} coins\`, you only have \`${userBalance} coins\`..`)
         
         const params = {
-          guildID: message.guild.id,
           userID: message.author.id
         }
         inventoryModel.findOne(params, async(err, data) => {
@@ -35,7 +34,6 @@ module.exports = {
           await inventoryModel.findOneAndUpdate(params, data);
          } else {
             new inventoryModel({
-              guildID: message.guild.id,
               userID: message.author.id,
               inventory: {
                 [itemToBuy]: 1,
