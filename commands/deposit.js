@@ -12,6 +12,6 @@ module.exports = {
 
     client.add(message.author.id, 0, parseInt(args[0]))
     client.remove(message.author.id, parseInt(args[0]), 0)
-    message.reply(`Deposited ${args[0].toLocaleString} coins into your bank.`)
+    message.reply(`Deposited ${args[0]} coins into your bank.`)
   },
 };
