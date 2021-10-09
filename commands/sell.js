@@ -11,7 +11,7 @@ module.exports = {
         if(!args[0]) return message.reply("Please state an item you want to sell!");
         const itemToSell = args[0].toLowerCase()
         
-        const validItem = !!inventoryData.inventory.find((val) => val.item.toLowerCase() === itemToSell);
+        const validItem = !!inventoryData.find((val) => val.item.toLowerCase() === itemToSell);
         if(!validItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
         
         const itemPrice = shopItems.find((val) => (val.item.toLowerCase()) === itemToSell).price;
