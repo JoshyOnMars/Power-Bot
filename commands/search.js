@@ -8,10 +8,10 @@ module.exports = {
     description: "Be a weirdo and search for money...",
     category: "Currency",
     cooldown: 45,
-    async execute(message, args, client, moneyData, serverData) {
+    async execute(message, args, client, inventoryData, moneyData, serverData) {
         if (serverData.economy == false) return message.reply(`The module \`economy\` is **disabled**`);
         
-        if (!inventoryModel.inventory.includes("Flashlight")) {
+        if (!inventoryData.inventory.includes("Flashlight")) {
         return message.reply("You don't own a \`flashlight\` to be able to search!")
         }
 
