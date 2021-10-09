@@ -10,8 +10,8 @@ module.exports = {
     if(shopItems.length === 0) return message.reply("No items are for sale!");
     
     const shopList = shopItems.map((value, index) => {
-      return `\n**${value.item}** — ${value.price}\n${value.description}`;
-    }).join("\n");
+      return `**${value.item}** — ${value.price}\n${value.description}`;
+    }).join("\n\n");
     
     let embed = new MessageEmbed()
     .setTitle(`Item Shop!`)
