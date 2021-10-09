@@ -21,11 +21,14 @@ module.exports = {
             	const hasItem = Object.keys(data.inventory).includes(itemToSell)
 	    	if (!hasItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
             	data.inventory[itemToSell]--
-            }
+		if (data.inventory[itemToSell] == 0) {
+		inventoryModel.dropIndex(itemToSell)
+		}
+	  }
           console.log(data)
           await inventoryModel.findOneAndUpdate(params, data);
          message.reply(`Sold \`${itemToSell}\` for ${itemPrice} coins!`)
-	      client.add(message.author.id, parseInt(itemPrice / 1.5), 0)
+	 client.add(message.author.id, parseInt(itemPrice / 1.5), 0)
         });
 	},
 };
