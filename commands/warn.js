@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const profileModel = require("../models/profileSchema");
+//const profileModel = require("../models/profileSchema");
 require("dotenv").config();
 const prefix = process.env.PREFIX
 
@@ -54,17 +54,6 @@ module.exports = {
         .setTitle(`You got warned in ${message.guild.name}`)
 	.addFields({name: `Reason:`,value: `${reason}`,})
         .setTimestamp()
-
-	const response = await profileModel.findOneAndUpdate(
-      	{
-        	userID: rUser.id,
-      	},
-      	{
-        	$inc: {
-          	modLogs: profileData.modLogs + 1,
-        },
-      	}
-    	);
 	
         message.channel.send({ embeds: [embed2] })
 	rUser.send({ embeds: [embed3] })
