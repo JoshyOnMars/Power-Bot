@@ -4,7 +4,7 @@ let moment = require("moment")
 module.exports = {
   name: "eval",
   description: "DEVELOPER ONLY",
-  async execute(message, args, client) {
+  async execute(message, args, client, moneyData) {
     function clean(text) {
       if (typeof text === "string")
         return text
