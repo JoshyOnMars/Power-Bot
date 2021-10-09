@@ -27,7 +27,7 @@ module.exports = {
 	  }
           console.log(data)
           await inventoryModel.findOneAndUpdate(params, data);
-         message.reply(`Sold \`${itemToSell}\` for ${itemPrice} coins!`)
+         message.reply(`Sold \`${itemToSell}\` for ${itemPrice / 1.5} coins!`)
 	 client.add(message.author.id, parseInt(itemPrice / 1.5), 0)
         });
 	},
