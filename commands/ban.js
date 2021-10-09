@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js")
-const profileModel = require("../models/profileSchema.js");
+//const profileModel = require("../models/profileSchema.js");
 
 module.exports = {
 	name: 'ban',
 	description: 'Ban a user who has been naughty.',
         usage: `ban [user] <reason>`,
         category: 'Moderation',
-	async execute(message, args, client, profileData) {
+	async execute(message, args, client) {
 
         message.delete()
 
@@ -28,16 +28,16 @@ module.exports = {
 		.setDescription(`${user} just got banned! | Reason: ${reason}`)
 		.setTimestamp()
 
-	const response = await profileModel.findOneAndUpdate(
-      	{
-        	userID: user.id,
-      	},
-      	{
-        	$inc: {
-          	modLogs: profileData.modLogs + 1,
-        },
-      	}
-    	);
+	//const response = await profileModel.findOneAndUpdate(
+      	//{
+        //	userID: user.id,
+      	//},
+      	//{
+        //	$inc: {
+        //  	modLogs: profileData.modLogs + 1,
+        //},
+      	//}
+    	//);
 	
             member.ban({reason: reason,}).then(() => {
             message.channel.send({ embeds: [embed] })
