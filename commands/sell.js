@@ -13,9 +13,6 @@ module.exports = {
 
 	let inventory = inventoryModel.findOne({ userID: message.author.id })
 	console.log(inventory)
-	
-        const validItem = !!inventory.inventory.find((val) => val.item.toLowerCase() === itemToSell);
-        if(!validItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
         
         const itemPrice = shopItems.find((val) => (val.item.toLowerCase()) === itemToSell).price;
         
@@ -24,8 +21,9 @@ module.exports = {
         }
         inventoryModel.findOne(params, async(err, data) => {
           if(data) {
-            const hasItem = Object.keys(data.inventory).includes(itemToSell)
-              data.inventory[itemToSell]--
+            	const hasItem = Object.keys(data.inventory).includes(itemToSell)
+	    	if (!hasItem) return message.reply(`You have no item called \`${itemToSell}\`, Please try again... CORRECTLY!`);
+            	data.inventory[itemToSell]--
             }
           console.log(data)
           await inventoryModel.findOneAndUpdate(params, data);
