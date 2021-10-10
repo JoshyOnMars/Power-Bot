@@ -17,7 +17,7 @@ module.exports = {
       		let chances = ["win", "lose"];
 		let pick = chances[Math.floor(Math.random() * chances.length)]
 		
-		let random = Math.floor(Math.random() * 3)
+		let random = Math.floor(Math.random() * 2) + 1
     		if(pick == "lose") {
       			message.reply(`You lost ${amountToBet} coins, lmao`);
 			client.remove(message.author.id, amountToBet, 0)
