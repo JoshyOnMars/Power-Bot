@@ -8,11 +8,9 @@ module.exports = {
 		
         	if(!args[0]) return message.reply("Please sepcify the amount you want to bet!")
 		
-		let amountToBet = parseInt(args[0]);
-		
-		if(args[0].toLowerCase() == "all" || "max") amountToBet = client.bal(message.author.id)
-		
         	if(isNaN(args[0])) return message.reply("The argument must be a number!")
+		
+		let amountToBet = parseInt(args[0]);
     
       		if(await client.bal(message.author.id) < amountToBet) return message.reply("You don't have enough coins to bet that amount!")
 		
