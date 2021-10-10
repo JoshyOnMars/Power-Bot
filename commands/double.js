@@ -8,7 +8,7 @@ module.exports = {
 		
         	if(!args[0]) return message.reply("Please sepcify the amount you want to bet!")
 		
-		const amountToBet = parseInt(args[0]);
+		let amountToBet = parseInt(args[0]);
 		
 		if(args[0].toLowerCase() == "all" || "max") amountToBet = client.bal(message.author.id)
 		
