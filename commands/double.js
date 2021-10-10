@@ -11,16 +11,19 @@ module.exports = {
         const amountToBet = parseInt(args[0]);
     
       if(await client.bal(message.author.id) < amountToBet) return message.reply("You don't have enough coins to bet that amount!")
+		
+	if(args[0]) {
+	    client.remove(message.author.id, amountToBet, 0)
+	}
     
       function random() {
         const num = Math.floor(Math.random() * 2);
         return num === 1;
       };
-    
+		
     if(random() === true) {
       const winAmount = amountToBet * 2;
       message.reply(`Congrats you won ${winAmount} coins!`)
-      client.remove(message.author.id, amountToBet, 0)
       client.add(message.author.id, winAmount, 0)
     } else {
       message.reply(`You lost ${amountToBet} coins, lmao`);
