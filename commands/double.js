@@ -27,7 +27,6 @@ module.exports = {
       client.add(message.author.id, winAmount, 0)
     } else {
       message.reply(`You lost ${amountToBet} coins, lmao`);
-      client.remove(message.author.id, amountToBet, 0)
     }
 	},
 };
