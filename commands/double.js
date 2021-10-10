@@ -11,10 +11,11 @@ module.exports = {
         	if(isNaN(args[0])) return message.reply("The argument must be a number!")
 		
 		let amountToBet = parseInt(args[0]);
+		if (amountToBet) {
+		client.remove(message.author.id, amountToBet, 0)
+		}
     
       		if(await client.bal(message.author.id) < amountToBet) return message.reply("You don't have enough coins to bet that amount!")
-		
-		client.remove(message.author.id, amountToBet, 0)
     
       		let chances = ["win", "lose"];
 		let pick = chances[Math.floor(Math.random() * chances.length)]
