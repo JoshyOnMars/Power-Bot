@@ -9,14 +9,11 @@ module.exports = {
         if(isNaN(args[0])) return message.reply("The argument must be a number!")
     
         const amountToBet = parseInt(args[0]);
-		
-		console.log(client.bal(message.author.id))
     
       if(await client.bal(message.author.id) < amountToBet) return message.reply("You don't have enough coins to bet that amount!")
 		
 	if(args[0]) {
 	    client.remove(message.author.id, amountToBet, 0)
-		console.log(client.bal(message.author.id))
 	}
     
       function random() {
