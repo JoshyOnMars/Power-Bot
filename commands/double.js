@@ -20,6 +20,7 @@ module.exports = {
     if(random() === true) {
       const winAmount = amountToBet * 2;
       message.reply(`Congrats you won ${winAmount} coins!`)
+      client.remove(message.author.id, amountToBet, 0)
       client.add(message.author.id, winAmount, 0)
     } else {
       message.reply(`You lost ${amountToBet} coins, lmao`);
