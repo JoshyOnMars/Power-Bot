@@ -17,11 +17,12 @@ module.exports = {
       		let chances = ["win", "lose"];
 		let pick = chances[Math.floor(Math.random() * chances.length)]
 		
+		let random = Math.floor(Math.random() * 3)
     		if(pick == "lose") {
       			message.reply(`You lost ${amountToBet} coins, lmao`);
 			client.remove(message.author.id, amountToBet, 0)
     		} else {
-      			const winAmount = amountToBet * Math.floor(Math.random() * 3);
+      			const winAmount = amountToBet * random;
       			message.reply(`Congrats you won ${winAmount} coins!`)
       			client.add(message.author.id, winAmount, 0)
     		}
