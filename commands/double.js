@@ -12,9 +12,7 @@ module.exports = {
     
       if(await client.bal(message.author.id) < amountToBet) return message.reply("You don't have enough coins to bet that amount!")
 		
-	if(args[0]) {
-	    client.remove(message.author.id, amountToBet, 0)
-	}
+	client.remove(message.author.id, amountToBet, 0)
     
       function random() {
         const num = Math.floor(Math.random() * 2);
